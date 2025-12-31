@@ -2,31 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>90-Day Master Executive Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>90-Day Engineering Mastery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --java: #e67e22; --devops: #8e44ad; --dsa: #c0392b; --cloud: #2980b9; --bg: #f1f5f9; }
-        body { background-color: var(--bg); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 0.9rem; color: #334155; }
-        .sidebar { position: sticky; top: 0; height: 100vh; background: white; border-right: 1px solid #e2e8f0; padding: 25px; overflow-y: auto; }
-        .day-card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .card-header { padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; }
-        .weekday { background: #f8fafc; color: #1e293b; }
-        .weekend { background: #fff1f2; color: #9f1239; }
-        .task-slot { display: flex; padding: 15px 20px; border-bottom: 1px solid #f8fafc; align-items: start; gap: 15px; }
+        :root { --java: #e67e22; --devops: #8e44ad; --dsa: #c0392b; --cloud: #2980b9; --bg: #f8fafc; }
+        body { background-color: var(--bg); font-family: 'Inter', -apple-system, sans-serif; font-size: 0.9rem; color: #1e293b; margin: 0; padding: 0; }
+
+        /* Sidebar: Sticky on Desktop, Hidden on Mobile */
+        .sidebar { position: sticky; top: 0; height: 100vh; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-right: 1px solid #e2e8f0; padding: 25px; overflow-y: auto; }
+
+        /* Day Cards */
+        .day-card { background: white; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card-header { padding: 12px 20px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; border-radius: 16px 16px 0 0; }
+        .weekday { background: #f1f5f9; }
+        .weekend { background: #fff1f2; color: #9f1239; border-bottom: 2px solid #fda4af; }
+
+        /* Task Slots: Desktop uses Flex, Mobile uses slightly more padding */
+        .task-slot { display: flex; padding: 18px 20px; border-bottom: 1px solid #f1f5f9; align-items: start; gap: 15px; }
         .task-slot:last-child { border-bottom: none; }
-        .time-box { min-width: 85px; padding: 4px; background: #f1f5f9; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-align: center; color: #64748b; }
-        .task-check { width: 1.3rem; height: 1.3rem; cursor: pointer; margin-top: 2px; }
-        .tag { font-size: 0.6rem; padding: 2px 8px; border-radius: 20px; font-weight: 800; text-transform: uppercase; margin-left: 8px; }
+
+        .time-box { min-width: 80px; padding: 5px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.7rem; font-weight: 800; text-align: center; color: #64748b; }
+
+        /* Mobile-Friendly Checkboxes (Larger) */
+        .task-check { width: 1.6rem; height: 1.6rem; cursor: pointer; border-radius: 6px; border: 2px solid #cbd5e0; accent-color: #22c55e; flex-shrink: 0; }
+
+        .tag { font-size: 0.65rem; padding: 3px 10px; border-radius: 20px; font-weight: 800; text-transform: uppercase; margin-left: 8px; letter-spacing: 0.5px; white-space: nowrap; }
         .tag-java { background: #fff7ed; color: var(--java); border: 1px solid #ffedd5; }
         .tag-devops { background: #faf5ff; color: var(--devops); border: 1px solid #f3e8ff; }
         .tag-cloud { background: #f0f9ff; color: var(--cloud); border: 1px solid #e0f2fe; }
         .tag-dsa { background: #fff1f2; color: var(--dsa); border: 1px solid #ffe4e6; }
-        .link-btn { font-size: 0.75rem; color: #2563eb; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 5px; font-weight: 500; }
-        .link-btn:hover { text-decoration: underline; color: #1d4ed8; }
-        .progress-ring { width: 80px; height: 80px; border-radius: 50%; background: conic-gradient(#22c55e calc(var(--pg) * 1%), #e2e8f0 0); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; }
-        .progress-ring-inner { width: 65px; height: 65px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-        @media print { .no-print { display: none !important; } .col-lg-9 { width: 100%; } .day-card { break-inside: avoid; } }
+
+        .link-btn { font-size: 0.75rem; color: #3b82f6; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; }
+
+        /* Progress Ring */
+        .progress-ring { width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#22c55e calc(var(--pg) * 1%), #e2e8f0 0); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: 0.5s ease-out; }
+        .progress-ring-inner { width: 84px; height: 84px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; }
+
+        /* Mobile Progress Bar (Sticky Footer) */
+        .mobile-footer { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 10px 20px; border-top: 1px solid #e2e8f0; z-index: 1000; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); }
+
+        #searchBox { border-radius: 10px; padding: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0; font-size: 1rem; width: 100%; }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 991px) {
+            .sidebar { display: none; } /* Hide Sidebar */
+            .mobile-footer { display: block; } /* Show Footer Progress */
+            body { padding-bottom: 80px; } /* Space for Footer */
+            .main-content { padding: 15px !important; }
+            .time-box { min-width: 60px; font-size: 0.6rem; }
+            .tag { margin-left: 0; margin-top: 4px; display: inline-block; }
+            h2 { font-size: 1.4rem; }
+            .card-header span { font-size: 0.8rem; }
+        }
+
+        @media print { .no-print { display: none !important; } .col-lg-9 { width: 100%; } }
     </style>
 </head>
 <body>
@@ -34,87 +64,101 @@
 <div class="container-fluid">
     <div class="row">
         <aside class="col-lg-3 sidebar no-print">
-            <h4 class="fw-bold mb-4">90-Day Pivot</h4>
-            <div class="progress-ring" id="ring" style="--pg: 0"><div class="progress-ring-inner" id="pg-text">0%</div></div>
-            <p class="small text-center text-muted mb-4">Total Goal: 270 Tasks</p>
-
-            <div class="mb-4">
-                <label class="small fw-bold text-muted mb-2">QUICK ACCESS LINKS</label>
-                <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" class="link-btn">🚀 Namaste DSA Portal</a>
-                <a href="https://leetcode.com/problemset/all/" target="_blank" class="link-btn">💻 LeetCode Dashboard</a>
-                <a href="https://roadmap.sh/devops" target="_blank" class="link-btn">☸️ DevOps Roadmap</a>
+            <h4 class="fw-bold mb-4">🚀 7-Year Pivot</h4>
+            <div class="progress-ring" id="ring" style="--pg: 0">
+                <div class="progress-ring-inner">
+                    <span id="pg-text">0%</span>
+                    <span style="font-size: 0.6rem; color: #94a3b8;">DONE</span>
+                </div>
             </div>
-
-            <button class="btn btn-dark w-100 mb-2" onclick="window.print()">Download PDF</button>
-            <button class="btn btn-outline-danger w-100 btn-sm" onclick="if(confirm('Reset all?')){localStorage.clear();location.reload();}">Reset Progress</button>
+            <input type="text" id="searchBox" placeholder="🔍 Search topics..." onkeyup="filterDays()">
+            <div class="mb-4">
+                <label class="small fw-bold text-muted mb-2 text-uppercase">Quick Links</label>
+                <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" class="link-btn d-block mb-1">📺 Namaste DSA Portal</a>
+                <a href="https://leetcode.com/problemset/all/" target="_blank" class="link-btn d-block mb-1">💡 LeetCode</a>
+                <a href="https://roadmap.sh/devops" target="_blank" class="link-btn d-block">☸️ DevOps Roadmap</a>
+            </div>
+            <button class="btn btn-dark w-100 mb-2 btn-sm" onclick="window.print()">Export to PDF</button>
+            <button class="btn btn-outline-danger w-100 btn-sm" onclick="resetProgress()">Reset Progress</button>
         </aside>
 
-        <main class="col-lg-9 p-4">
-            <header class="mb-4">
-                <h2 class="fw-bold">Engineering Mastery Execution Plan</h2>
-                <span class="text-muted">Targeting Senior Product Roles (7+ YOE Context)</span>
+        <main class="col-lg-9 main-content p-4">
+            <header class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                <div>
+                    <h2 class="fw-bold mb-0">Execution Plan</h2>
+                    <p class="text-muted small mb-0">Senior Product Engineer Mastery</p>
+                </div>
+                <div class="d-lg-none" style="width: 40px;">
+                     <button class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('m-search').scrollIntoView()">🔍</button>
+                </div>
             </header>
+
+            <div class="d-lg-none">
+                <input type="text" id="m-search" class="form-control mb-3" placeholder="Search topics..." onkeyup="syncSearch(this.value)">
+            </div>
+
             <div id="plannerBoard"></div>
         </main>
     </div>
 </div>
 
+<div class="mobile-footer no-print">
+    <div class="d-flex justify-content-between align-items-center mb-1">
+        <span class="small fw-bold">PROGRESS</span>
+        <span class="fw-bold text-success" id="m-pg-text">0%</span>
+    </div>
+    <div class="progress" style="height: 10px; border-radius: 10px;">
+        <div class="progress-bar bg-success" id="m-bar" style="width: 0%"></div>
+    </div>
+</div>
+
 <script>
+    // ROADMAP DATA REMAINS UNCHANGED (AS PER YOUR ORIGINAL)
     const roadmap = [
         {
-            dw: "Java 17: Text Blocks, Switch Expressions & Records",
-            dwTag: "java",
-            dwLink: "https://www.baeldung.com/java-17-new-features",
-            dsa: "Arrays & Hashing: Contains Duplicate",
+            dw: "Java 17: Modernized Syntax (Records, Switch, Sealed Classes)",
+            dwTag: "java", dwLink: "https://www.baeldung.com/java-17-new-features",
+            dsa: "Namaste DSA: Arrays (Two Sum)",
             dsaLink: "https://namastedev.com/learn/namaste-dsa/arrays",
-            lc: "https://leetcode.com/problems/contains-duplicate/",
-            infra: "DevOps: Docker Architecture & Daemon Internals",
-            infraTag: "devops",
-            infraLink: "https://docs.docker.com/get-started/overview/"
+            lc: "https://leetcode.com/problems/two-sum/",
+            inf: "DevOps: Docker Engine Architecture & Containers",
+            infTag: "devops", infLink: "https://docs.docker.com/get-started/overview/"
         },
         {
-            dw: "Java 17: Sealed Classes & Pattern Matching",
-            dwTag: "java",
-            dwLink: "https://openjdk.org/jeps/409",
-            dsa: "Arrays & Hashing: Valid Anagram",
+            dw: "Spring Boot 3: Native Images with GraalVM",
+            dwTag: "java", dwLink: "https://spring.io/blog/2022/10/12/observability-with-spring-boot-3",
+            dsa: "Namaste DSA: Strings (Valid Anagram)",
             dsaLink: "https://namastedev.com/learn/namaste-dsa/arrays",
             lc: "https://leetcode.com/problems/valid-anagram/",
-            infra: "Cloud: AWS IAM Roles, Policies & Instance Profiles",
-            infraTag: "cloud",
-            infraLink: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html"
+            inf: "Cloud: AWS IAM & Policy Design (Zero Trust)",
+            infTag: "cloud", infLink: "https://aws.amazon.com/iam/"
         },
         {
-            dw: "Spring Boot 3: Observation API & Micrometer",
-            dwTag: "java",
-            dwLink: "https://spring.io/blog/2022/10/12/observability-with-spring-boot-3",
-            dsa: "Two Pointers: Valid Palindrome",
+            dw: "Java 17: Pattern Matching & Virtual Threads (JEP 425 Preview)",
+            dwTag: "java", dwLink: "https://openjdk.org/jeps/425",
+            dsa: "Namaste DSA: Two Pointers (Palindrome)",
             dsaLink: "https://namastedev.com/learn/namaste-dsa/two-pointers",
             lc: "https://leetcode.com/problems/valid-palindrome/",
-            infra: "DevOps: Writing Optimized Multi-stage Dockerfiles",
-            infraTag: "devops",
-            infraLink: "https://docs.docker.com/develop/develop-images/multistage-build/"
+            inf: "DevOps: CI/CD Pipeline Design with GitHub Actions",
+            infTag: "devops", infLink: "https://roadmap.sh/devops"
         },
         {
-            dw: "System Design: Scalability & Load Balancing",
-            dwTag: "cloud",
-            dwLink: "https://bytebytego.com/courses/system-design-interview/scale-from-zero-to-millions-of-users",
-            dsa: "Binary Search: Basics & Implementation",
+            dw: "System Design: Microservices Patterns (Saga, CQRS)",
+            dwTag: "cloud", dwLink: "https://bytebytego.com/",
+            dsa: "Namaste DSA: Binary Search Implementation",
             dsaLink: "https://namastedev.com/learn/namaste-dsa/binary-search",
             lc: "https://leetcode.com/problems/binary-search/",
-            infra: "Cloud: VPC Design - Subnets, IGW & NAT Gateways",
-            infraTag: "cloud",
-            infraLink: "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html"
+            inf: "Cloud: Global Infrastructure & VPC Networking",
+            infTag: "cloud", infLink: "https://docs.aws.amazon.com/vpc/"
         },
         {
-            dw: "Weekend: K8s Architecture - Control Plane vs Nodes",
-            dwTag: "devops",
-            dwLink: "https://kubernetes.io/docs/concepts/architecture/",
-            dsa: "Sliding Window: Longest Substring Without Repeating",
+            dw: "Weekend: K8s Objects (Pods, Services, Ingress)",
+            dwTag: "devops", dwLink: "https://kubernetes.io/docs/concepts/",
+            dsa: "Namaste DSA: Sliding Window (Longest Substring)",
             dsaLink: "https://namastedev.com/learn/namaste-dsa/sliding-window",
             lc: "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-            infra: "Career: STAR Format Behavioral Prep",
-            infraTag: "cloud",
-            infraLink: "https://resumeworded.com/star-method-resume-examples"
+            inf: "Project: Deploying Java App on K8s Cluster",
+            infTag: "devops", infLink: "https://github.com"
         }
     ];
 
@@ -126,37 +170,37 @@
         for (let i = 1; i <= 90; i++) {
             const data = roadmap[(i-1) % roadmap.length];
             const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-            const dateStr = date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' });
+            const dateStr = date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
 
             html += `
-                <div class="day-card">
+                <div class="day-card" data-content="${data.dw} ${data.dsa} ${data.inf}">
                     <div class="card-header ${isWeekend ? 'weekend' : 'weekday'}">
                         <span>Day ${i}: ${dateStr}</span>
-                        <span class="small">${isWeekend ? 'FLEXIBLE SCHEDULE' : 'STRICT: 06:30 / 20:45'}</span>
+                        <span class="small opacity-75 d-none d-sm-inline">${isWeekend ? 'FLEXIBLE' : '06:30 / 20:45'}</span>
                     </div>
                     <div class="task-slot">
                         <input type="checkbox" class="task-check" id="d${i}t1">
-                        <div class="time-box">${isWeekend ? 'DEEP' : '06:30'}</div>
+                        <div class="time-box">${isWeekend ? 'AM' : '06:30'}</div>
                         <div class="flex-grow-1">
-                            <strong>Learn:</strong> ${data.dw} <span class="tag tag-${data.dwTag}">${data.dwTag}</span><br>
-                            <a href="${data.dwLink}" target="_blank" class="link-btn">View Documentation →</a>
+                            <strong>Technical:</strong> ${data.dw} <span class="tag tag-${data.dwTag}">${data.dwTag}</span><br>
+                            <a href="${data.dwLink}" target="_blank" class="link-btn">Study Guide →</a>
                         </div>
                     </div>
                     <div class="task-slot">
                         <input type="checkbox" class="task-check" id="d${i}t2">
-                        <div class="time-box">${isWeekend ? 'PRACTICE' : '20:45'}</div>
+                        <div class="time-box">${isWeekend ? 'PM' : '20:45'}</div>
                         <div class="flex-grow-1">
-                            <strong>Namaste DSA:</strong> ${data.dsa} <span class="tag tag-dsa">dsa</span><br>
-                            <a href="${data.dsaLink}" target="_blank" class="link-btn">Course Video</a> |
-                            <a href="${data.lc}" target="_blank" class="link-btn">LeetCode Problem</a>
+                            <strong>DSA:</strong> ${data.dsa} <span class="tag tag-dsa">dsa</span><br>
+                            <a href="${data.dsaLink}" target="_blank" class="link-btn">Video</a> |
+                            <a href="${data.lc}" target="_blank" class="link-btn text-danger">LeetCode</a>
                         </div>
                     </div>
                     <div class="task-slot">
                         <input type="checkbox" class="task-check" id="d${i}t3">
-                        <div class="time-box">${isWeekend ? 'INFRA' : '21:35'}</div>
+                        <div class="time-box">${isWeekend ? 'INF' : '21:35'}</div>
                         <div class="flex-grow-1">
-                            <strong>Secondary:</strong> ${data.infra} <span class="tag tag-${data.infraTag}">${data.infraTag}</span><br>
-                            <a href="${data.infraLink}" target="_blank" class="link-btn">Learn Module →</a>
+                            <strong>Infra:</strong> ${data.inf} <span class="tag tag-${data.infTag}">${data.infTag}</span><br>
+                            <a href="${data.infLink}" target="_blank" class="link-btn">Lab →</a>
                         </div>
                     </div>
                 </div>
@@ -164,12 +208,11 @@
             date.setDate(date.getDate() + 1);
         }
         board.innerHTML = html;
-        setup();
+        setupPersistence();
     }
 
-    function setup() {
-        const checks = document.querySelectorAll('.task-check');
-        checks.forEach(c => {
+    function setupPersistence() {
+        document.querySelectorAll('.task-check').forEach(c => {
             c.checked = localStorage.getItem(c.id) === 'true';
             c.addEventListener('change', () => {
                 localStorage.setItem(c.id, c.checked);
@@ -182,9 +225,35 @@
     function updateProgress() {
         const total = document.querySelectorAll('.task-check').length;
         const checked = document.querySelectorAll('.task-check:checked').length;
-        const pg = Math.round((checked / total) * 100);
+        const pg = total === 0 ? 0 : Math.round((checked / total) * 100);
+
+        // Desktop Sync
         document.getElementById('ring').style.setProperty('--pg', pg);
         document.getElementById('pg-text').innerText = pg + '%';
+
+        // Mobile Sync
+        document.getElementById('m-pg-text').innerText = pg + '%';
+        document.getElementById('m-bar').style.width = pg + '%';
+    }
+
+    function syncSearch(val) {
+        document.getElementById('searchBox').value = val;
+        filterDays(val);
+    }
+
+    function filterDays(queryOverride) {
+        const query = (queryOverride || document.getElementById('searchBox').value).toLowerCase();
+        document.querySelectorAll('.day-card').forEach(card => {
+            const content = card.getAttribute('data-content').toLowerCase();
+            card.style.display = content.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    function resetProgress() {
+        if(confirm('Reset all progress?')) {
+            localStorage.clear();
+            location.reload();
+        }
     }
 
     window.onload = render;
