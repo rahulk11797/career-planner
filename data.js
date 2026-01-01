@@ -100,7 +100,7 @@
     tasks: [
       { cat: "java", topic: "JVM Architecture, Class Loading, Bytecode, JIT", time: "07:00", link: "https://www.baeldung.com/jvm-vs-jre-vs-jdk", level: "medium" },
       { cat: "dsa", topic: "Time & Space Complexity + Big-O Analysis", time: "20:45", link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/", level: "easy" },
-      { cat: "system-design", topic: "Scalability Basics, Vertical vs Horizontal", time: "21:35", link: "https://aws.amazon.com/builders-library/horizontal-scaling/", level: "easy" }
+      { cat: "system-design", topic: "Scalability Basics, Vertical vs Horizontal", time: "21:35", link: "https://www.datacamp.com/blog/horizontal-vs-vertical-scaling", level: "easy" }
     ]
   },
   {
