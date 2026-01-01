@@ -21,18 +21,30 @@
 
         body { 
             background-color: var(--bg); color: var(--text-main); 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
-            font-size: 0.85rem; margin: 0; padding-top: 60px; transition: 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+            font-size: 0.85rem; margin: 0; padding-top: 65px; transition: 0.3s;
         }
 
+        /* Responsive Header */
         .glass-header {
             position: fixed; top: 0; width: 100%; z-index: 1100;
             background: var(--sidebar-bg); border-bottom: 1px solid var(--border);
-            padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
         }
 
+        /* Sidebar Styling */
         .sidebar { background: var(--sidebar-bg); border-right: 1px solid var(--border); padding: 25px 20px; }
-        @media (min-width: 992px) { .sidebar { position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; } }
+        
+        @media (min-width: 992px) { 
+            .sidebar { position: sticky; top: 65px; height: calc(100vh - 65px); overflow-y: auto; }
+            .mobile-toggle { display: none; }
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 991px) {
+            .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+            .offcanvas { background-color: var(--sidebar-bg) !important; color: var(--text-main); border-right: 1px solid var(--border); }
+        }
 
         .live-clock { font-size: 2.2rem; font-weight: 800; color: var(--accent); text-align: center; font-variant-numeric: tabular-nums; }
         .date-display { color: var(--text-main); font-weight: 700; text-align: center; font-size: 0.7rem; margin-bottom: 20px; opacity: 0.7; text-transform: uppercase; }
@@ -46,274 +58,77 @@
         }
         .portal-link:hover { background: var(--border); color: var(--accent); }
 
+        /* Card Responsive Layout */
         .day-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
-        .day-label { background: rgba(0,0,0,0.04); padding: 12px 15px; font-weight: 800; color: var(--accent); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .day-label { background: rgba(0,0,0,0.04); padding: 10px 15px; font-weight: 800; color: var(--accent); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;}
         
-        .task-slot { display: flex; align-items: center; padding: 12px 15px; border-bottom: 1px solid var(--border); gap: 12px; }
+        .task-slot { 
+            display: flex; align-items: center; padding: 12px 15px; 
+            border-bottom: 1px solid var(--border); gap: 12px; flex-wrap: wrap; 
+        }
         .task-slot:last-child { border-bottom: none; }
         
-        .tag { font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
-        .btn-study { font-size: 0.65rem; font-weight: 700; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 4px 10px; border-radius: 5px; background: transparent; transition: 0.2s; }
+        .task-info { flex: 1; min-width: 200px; display: flex; align-items: center; gap: 10px; }
+        .task-meta { display: flex; align-items: center; gap: 15px; margin-left: auto; }
+
+        .tag { font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; font-weight: 900; text-transform: uppercase; white-space: nowrap; border: 1px solid rgba(255,255,255,0.1); }
+        
+        .btn-study { font-size: 0.65rem; font-weight: 700; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 4px 10px; border-radius: 5px; background: transparent; transition: 0.2s; white-space: nowrap; }
         .btn-study:hover { background: var(--accent); color: #fff; }
 
         .p-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 5px; }
         .p-fill { height: 100%; transition: width 0.5s; background: var(--accent); }
+
+        @media print { .no-print { display: none !important; } body { padding-top: 0; } }
+        
+        /* Hamburger menu styling */
+        .navbar-toggler { border-color: var(--border); padding: 4px 8px; }
+        .navbar-toggler-icon { filter: invert(50%); }
     </style>
 </head>
 <body>
 
 <header class="glass-header no-print">
-    <div class="fw-bold">MASTERY OS <span style="color:var(--accent)">v4.0</span></div>
+    <div class="d-flex align-items-center gap-2">
+        <button class="navbar-toggler mobile-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="fw-bold">MASTERY OS <span style="color:var(--accent)">v4.2</span></div>
+    </div>
     <div class="d-flex gap-2">
-        <button class="btn btn-sm btn-outline-info" onclick="toggleTheme()">🌓 THEME</button>
-        <button class="btn btn-sm btn-primary" onclick="window.print()">EXPORT PDF</button>
+        <button class="btn btn-sm btn-outline-info" onclick="toggleTheme()">🌓</button>
+        <button class="btn btn-sm btn-primary" onclick="window.print()">EXPORT</button>
     </div>
 </header>
 
 <div class="container-fluid">
     <div class="row">
-        <aside class="col-lg-3 sidebar no-print">
-            <div id="clock" class="live-clock">00:00:00</div>
-            <div id="sidebar-date" class="date-display">...</div>
-
-            <div class="motivation-box">
-                <div style="font-size: 0.6rem; font-weight: 900; color: var(--accent); margin-bottom: 5px;">DAILY_MINDSET</div>
-                <div id="quote-text" style="font-style: italic; font-size: 0.8rem; line-height: 1.4;">"Code is craft."</div>
-            </div>
-
-            <div class="stat-group mb-4">
-                <div class="d-flex justify-content-between small fw-bold"><span>OVERALL MASTERY</span><span id="p-txt">0%</span></div>
-                <div class="p-bar"><div class="p-fill" id="pb-total"></div></div>
-            </div>
-
-            <label class="small fw-bold opacity-50 mb-2 d-block">EXTERNAL PORTALS</label>
-            <a href="https://namastedev.com/" target="_blank" class="portal-link"><span>📺</span> Namaste Dev</a>
-            <a href="https://leetcode.com/" target="_blank" class="portal-link"><span>📊</span> LeetCode</a>
-            <a href="https://bytebytego.com/" target="_blank" class="portal-link"><span>🏗️</span> ByteByteGo</a>
-            <a href="https://www.baeldung.com/" target="_blank" class="portal-link"><span>☕</span> Baeldung</a>
+        <aside class="col-lg-3 sidebar d-none d-lg-block no-print">
+            <div id="sidebar-content">
+                </div>
         </aside>
 
-        <main class="col-lg-9 p-4">
+        <div class="offcanvas offcanvas-start d-lg-none no-print" tabindex="-1" id="sidebarOffcanvas">
+            <div class="offcanvas-header border-bottom border-secondary">
+                <h5 class="offcanvas-title fw-bold">DASHBOARD</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body p-0" id="mobile-sidebar-content">
+                </div>
+        </div>
+
+        <main class="col-lg-9 p-3 p-md-4">
             <div id="roadmap-grid"></div>
         </main>
     </div>
 </div>
 
+<script src="data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    const QUOTES = [
-    "Consistency beats intensity. 1 hour every day > 15 hours once a week.",
-    "System Design is the art of choosing which problems you want to have.",
-    "Amateurs talk about features. Professionals talk about trade-offs.",
-    "Every senior dev was once a junior who didn't quit.",
-    "Small steps every day lead to massive results in 90 days.",
-    "Your first 1000 LeetCode submissions are the hardest. Keep going.",
-    "Design for failure, and you'll build for success.",
-    "First, solve the problem. Then, write the code.",
-    "Logic is the beginning of wisdom, not the end.",
-    "Optimization without measurement is just a guess.",
-    "The best way to predict the future is to implement it.",
-    "Code is read much more often than it is written.",
-    "Complexity is the enemy of reliability.",
-    "Master the basics, and the 'advanced' stuff becomes easy.",
-    "Learning to learn is the ultimate meta-skill.",
-    "Don't practice until you get it right. Practice until you can't get it wrong.",
-    "Every 'Time Limit Exceeded' is an opportunity to optimize.",
-    "Automation is the key to sanity.",
-    "A bug is never just a bug; it's a lesson.",
-    "Software is a gas; it expands to fill its container.",
-    "Seniority is the depth of your architectural empathy.",
-    "Don't build for tomorrow's scale with today's budget.",
-    "Deep work is the superpower of the 21st century.",
-    "Quality is not an act, it is a habit.",
-    "The best refactoring is deleting code.",
-    "Simplicity is the ultimate sophistication.",
-    "Slow is smooth, smooth is fast.",
-    "Knowledge is power, but application is impact.",
-    "Errors are proof that you are trying.",
-    "Growth happens outside the comfort zone.",
-    "Read books. Write code. Build systems.",
-    "Mastery is 10,000 hours of deliberate practice.",
-    "Focus on the process, not the outcome.",
-    "A system is only as strong as its weakest link.",
-    "Document your assumptions, not just your code.",
-    "The best debugger is a good night's sleep.",
-    "Logic is the beginning of wisdom, not the end.",
-    "Curiosity is the engine of engineering.",
-    "Failure is just data.",
-    "Be obsessed or be average.",
-    "Your potential is endless.",
-    "Don't wait for inspiration. Create it.",
-    "Every line of code is a liability. Choose wisely.",
-    "Understanding is better than memorizing.",
-    "Great engineers ask 'Why?' before 'How?'.",
-    "Keep your dependencies low and your standards high.",
-    "Mastering DSA is about pattern recognition, not memorization.",
-    "Consistency is what transforms average into excellence.",
-    "A master has failed more times than the beginner has tried.",
-    "Build in public. Learn in private.",
-    "Don't just fix the bug, fix the process.",
-    "Software engineering is a team sport.",
-    "The keyboard is mightier than the sword.",
-    "Work smart. Build fast. Stay humble.",
-    "The only bad question is the one not asked.",
-    "Resilience is the key to any 90-day grind.",
-    "Focus on fundamentals. The syntax is temporary.",
-    "Code doesn't lie. People do.",
-    "Master the JVM, and you master the machine.",
-    "Your legacy is the systems you leave behind.",
-    "Learn. Build. Share. Repeat.",
-    "Everything is a trade-off.",
-    "Mastery starts today.",
-    "Keep going. You're closer than you think.",
-    "Don't let what you can't do interfere with what you can do.",
-    "The secret of getting ahead is getting started.",
-    "Discipline is choosing between what you want now and what you want most.",
-    "If you want to go fast, go alone. If you want to go far, go together.",
-    "The only way to do great work is to love what you do.",
-    "Hard work beats talent when talent doesn't work hard.",
-    "You are your only competition.",
-    "Stay hungry. Stay foolish. Stay coding.",
-    "Ships are safe in the harbor, but that's not what ships are for.",
-    "The more you know, the more you realize you don't know.",
-    "Think twice, code once.",
-    "A goal without a plan is just a wish.",
-    "Write code as if the person maintaining it knows where you live.",
-    "Success is a series of small wins.",
-    "Fear of failure is the enemy of progress.",
-    "Stay consistent even when you don't feel like it.",
-    "Excellence is not a destination; it's a continuous journey.",
-    "Your mind is for having ideas, not holding them.",
-    "Solve the problem in your head before touching the keyboard.",
-    "The most dangerous phrase is: 'We've always done it this way.'",
-    "Great systems are built on simple foundations.",
-    "Refactor your life like you refactor your code.",
-    "Commitment is doing what you said you would do.",
-    "Your future self will thank you for today's grind.",
-    "90 days of focus can change your life forever."
-];
-
-    const DATA = [
-{
-  tasks: [
-    { cat: "java", topic: "JVM Architecture, Class Loading & Bytecode", time: "07:00", link: "https://www.baeldung.com/java-classloaders" },
-    { cat: "dsa", topic: "Time & Space Complexity Analysis", time: "20:45", link: "https://leetcode.com/discuss/general-discussion/458695/time-and-space-complexity-guide" },
-    { cat: "system-design", topic: "What is Scalability? Vertical vs Horizontal Scaling", time: "21:35", link: "https://www.educative.io/blog/scalability-system-design" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Java Memory Model & Happens-Before Rules", time: "07:00", link: "https://shipilev.net/blog/2014/jmm-pragmatics/" },
-    { cat: "dsa", topic: "Arrays: Prefix Sum & Difference Array", time: "20:45", link: "https://leetcode.com/problems/subarray-sum-equals-k/" },
-    { cat: "system-design", topic: "Latency vs Throughput", time: "21:35", link: "https://aws.amazon.com/builders-library/latency-and-throughput/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Garbage Collection: Serial, CMS, G1, ZGC", time: "07:00", link: "https://www.baeldung.com/jvm-garbage-collectors" },
-    { cat: "dsa", topic: "Sliding Window Patterns", time: "20:45", link: "https://leetcode.com/problems/sliding-window-maximum/" },
-    { cat: "system-design", topic: "Load Balancing: L4 vs L7", time: "21:35", link: "https://www.nginx.com/resources/glossary/load-balancing/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "GC Tuning, Heap Sizing & GC Logs", time: "07:00", link: "https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html" },
-    { cat: "dsa", topic: "Two Pointers Technique", time: "20:45", link: "https://leetcode.com/problems/trapping-rain-water/" },
-    { cat: "system-design", topic: "Consistent Hashing", time: "21:35", link: "https://www.enjoyalgorithms.com/blog/consistent-hashing-in-system-design/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Java Concurrency: synchronized, volatile", time: "07:00", link: "https://www.baeldung.com/java-volatile" },
-    { cat: "dsa", topic: "HashMap Internals & Hashing Problems", time: "20:45", link: "https://leetcode.com/problems/two-sum/" },
-    { cat: "system-design", topic: "CAP Theorem", time: "21:35", link: "https://www.ibm.com/topics/cap-theorem" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Locks, ReentrantLock & Deadlocks", time: "07:00", link: "https://www.baeldung.com/java-concurrency-locks" },
-    { cat: "dsa", topic: "Stack & Monotonic Stack", time: "20:45", link: "https://leetcode.com/problems/daily-temperatures/" },
-    { cat: "system-design", topic: "PACELC Theorem", time: "21:35", link: "https://dbms-not-only-sql.blogspot.com/2012/12/pacelc-theorem.html" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "CompletableFuture & Async Programming", time: "07:00", link: "https://www.baeldung.com/java-completablefuture" },
-    { cat: "dsa", topic: "Binary Search Patterns", time: "20:45", link: "https://leetcode.com/problems/koko-eating-bananas/" },
-    { cat: "system-design", topic: "Rate Limiting Algorithms", time: "21:35", link: "https://konghq.com/blog/engineering/system-design-interview-rate-limiting" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Java NIO & Threading Model", time: "07:00", link: "https://www.baeldung.com/java-nio" },
-    { cat: "dsa", topic: "Linked List Cycle Detection", time: "20:45", link: "https://leetcode.com/problems/linked-list-cycle-ii/" },
-    { cat: "system-design", topic: "Caching Basics & Cache Invalidation", time: "21:35", link: "https://martinfowler.com/bliki/CacheInvalidation.html" }
-  ]
-},
-{
-  tasks: [
-    { cat: "database", topic: "SQL Basics, Indexes & Query Execution", time: "07:00", link: "https://use-the-index-luke.com/" },
-    { cat: "dsa", topic: "Recursion & Backtracking", time: "20:45", link: "https://leetcode.com/problems/subsets/" },
-    { cat: "system-design", topic: "Database Scaling Basics", time: "21:35", link: "https://www.educative.io/blog/database-scaling" }
-  ]
-},
-{
-  tasks: [
-    { cat: "database", topic: "Transactions, Isolation Levels", time: "07:00", link: "https://www.baeldung.com/transaction-isolation-levels" },
-    { cat: "dsa", topic: "Tree Traversals", time: "20:45", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/" },
-    { cat: "system-design", topic: "SQL vs NoSQL", time: "21:35", link: "https://aws.amazon.com/nosql/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "Spring Boot Auto Configuration & Bean Lifecycle", time: "07:00", link: "https://www.baeldung.com/spring-boot-auto-configuration" },
-    { cat: "dsa", topic: "Heap & Priority Queue", time: "20:45", link: "https://leetcode.com/problems/top-k-frequent-elements/" },
-    { cat: "database", topic: "B-Trees vs LSM Trees", time: "21:35", link: "https://blog.bytebytego.com/p/b-tree-vs-lsm-tree" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "@Transactional, Propagation & Rollback Rules", time: "07:00", link: "https://www.baeldung.com/spring-transactional-propagation-isolation" },
-    { cat: "dsa", topic: "Graph BFS & DFS", time: "20:45", link: "https://leetcode.com/problems/course-schedule/" },
-    { cat: "system-design", topic: "Message Queues & Pub-Sub", time: "21:35", link: "https://aws.amazon.com/message-queue/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "java", topic: "REST API Design Best Practices", time: "07:00", link: "https://restfulapi.net/" },
-    { cat: "dsa", topic: "Topological Sorting", time: "20:45", link: "https://leetcode.com/problems/course-schedule/" },
-    { cat: "system-design", topic: "Kafka Architecture Deep Dive", time: "21:35", link: "https://blog.bytebytego.com/p/why-is-kafka-so-fast" }
-  ]
-},
-{
-  tasks: [
-    { cat: "system-design", topic: "Design URL Shortener", time: "07:00", link: "https://www.educative.io/courses/grokking-system-design-interview" },
-    { cat: "dsa", topic: "Dynamic Programming Patterns", time: "20:45", link: "https://leetcode.com/problems/longest-palindromic-substring/" },
-    { cat: "devops", topic: "Docker Images & Containers", time: "21:35", link: "https://docs.docker.com/get-started/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "system-design", topic: "Design Notification System", time: "07:00", link: "https://www.youtube.com/@GauravSen" },
-    { cat: "dsa", topic: "Trie & String Algorithms", time: "20:45", link: "https://leetcode.com/problems/implement-trie-prefix-tree/" },
-    { cat: "devops", topic: "Kubernetes Pods, Services & Deployments", time: "21:35", link: "https://kubernetes.io/docs/concepts/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "interview", topic: "Mock DSA Interview (Timed)", time: "07:00", link: "https://leetcode.com/contest/" },
-    { cat: "system-design", topic: "Design WhatsApp / Chat System", time: "20:45", link: "https://www.youtube.com/@GauravSen" },
-    { cat: "observability", topic: "Debugging Production Issues", time: "21:35", link: "https://sre.google/sre-book/monitoring-distributed-systems/" }
-  ]
-},
-{
-  tasks: [
-    { cat: "interview", topic: "Behavioral Interview Practice (STAR)", time: "07:00", link: "https://www.levels.fyi/blog/amazon-leadership-principles.html" },
-    { cat: "system-design", topic: "Design Payment System", time: "20:45", link: "https://stripe.com/blog/payment-processing" },
-    { cat: "observability", topic: "Postmortems & Incident Analysis", time: "21:35", link: "https://sre.google/sre-book/postmortem-culture/" }
-  ]
-}
-];
-
+    const QUOTES = window.MASTER_QUOTES;
+    const DATA = window.MASTER_DATA;
 
     function toggleTheme() {
         const root = document.documentElement;
@@ -324,18 +139,49 @@
 
     function updateClock() {
         const now = new Date();
-        document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB');
-        document.getElementById('sidebar-date').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const timeStr = now.toLocaleTimeString('en-GB');
+        const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        
+        document.querySelectorAll('.live-clock').forEach(el => el.innerText = timeStr);
+        document.querySelectorAll('.date-display').forEach(el => el.innerText = dateStr);
+    }
+
+    function injectSidebar() {
+        const content = `
+            <div class="p-4 p-lg-0">
+                <div class="live-clock">00:00:00</div>
+                <div class="date-display">...</div>
+
+                <div class="motivation-box">
+                    <div style="font-size: 0.6rem; font-weight: 900; color: var(--accent); margin-bottom: 5px;">DAILY_MINDSET</div>
+                    <div id="quote-text" class="quote-container" style="font-style: italic; font-size: 0.8rem; line-height: 1.4;">"Code is craft."</div>
+                </div>
+
+                <div class="stat-group mb-4">
+                    <div class="d-flex justify-content-between small fw-bold"><span>OVERALL MASTERY</span><span class="p-txt">0%</span></div>
+                    <div class="p-bar"><div class="p-fill pb-total"></div></div>
+                </div>
+
+                <label class="small fw-bold opacity-50 mb-2 d-block">EXTERNAL PORTALS</label>
+                <a href="https://namastedev.com/" target="_blank" class="portal-link"><span>📺</span> Namaste Dev</a>
+                <a href="https://leetcode.com/" target="_blank" class="portal-link"><span>📊</span> LeetCode</a>
+                <a href="https://bytebytego.com/" target="_blank" class="portal-link"><span>🏗️</span> ByteByteGo</a>
+                <a href="https://www.baeldung.com/" target="_blank" class="portal-link"><span>☕</span> Baeldung</a>
+            </div>
+        `;
+        document.getElementById('sidebar-content').innerHTML = content;
+        document.getElementById('mobile-sidebar-content').innerHTML = content;
     }
 
     function render() {
+        if (!DATA) return;
         const grid = document.getElementById('roadmap-grid');
         let html = '';
         let trackDate = new Date(); 
 
         for (let i = 1; i <= 90; i++) {
             const dayData = DATA[(i-1) % DATA.length];
-            const dateStr = trackDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            const dateStr = trackDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
             
             html += `
                 <div class="day-card">
@@ -345,13 +191,15 @@
                     </div>
                     ${dayData.tasks.map((t, idx) => `
                         <div class="task-slot">
-                            <input type="checkbox" id="d${i}t${idx}" onchange="saveProgress()" ${localStorage.getItem(`d${i}t${idx}`) === 'true' ? 'checked' : ''}>
-                            <div style="flex:1">
-                                <span class="tag" style="background:rgba(var(--accent-rgb),0.1); color:var(--${t.cat})">${t.cat.replace('-', ' ')}</span>
-                                <span class="ms-2 fw-bold text-truncate">${t.topic}</span>
+                            <div class="task-info">
+                                <input type="checkbox" id="d${i}t${idx}" onchange="saveProgress()" ${localStorage.getItem(`d${i}t${idx}`) === 'true' ? 'checked' : ''}>
+                                <span class="tag" style="color:var(--${t.cat})">${t.cat.replace('-', ' ')}</span>
+                                <span class="fw-bold">${t.topic}</span>
                             </div>
-                            <span class="small opacity-50 fw-bold">${t.time}</span>
-                            <a href="${t.link}" target="_blank" class="btn-study">STUDY →</a>
+                            <div class="task-meta">
+                                <span class="small opacity-50 fw-bold d-none d-sm-inline">${t.time}</span>
+                                <a href="${t.link}" target="_blank" class="btn-study">STUDY →</a>
+                            </div>
                         </div>
                     `).join('')}
                 </div>`;
@@ -365,22 +213,32 @@
         const all = document.querySelectorAll('input[type="checkbox"]');
         let done = 0;
         all.forEach(cb => {
-            if(cb.checked) { done++; localStorage.setItem(cb.id, 'true'); }
-            else { localStorage.removeItem(cb.id); }
+            if(cb.checked) { 
+                done++; 
+                localStorage.setItem(cb.id, 'true'); 
+            } else { 
+                localStorage.removeItem(cb.id); 
+            }
         });
-        const per = Math.round((done / all.length) * 100) || 0;
-        document.getElementById('pb-total').style.width = per + '%';
-        document.getElementById('p-txt').innerText = per + '%';
+        const per = Math.round((done / (all.length || 1)) * 100);
+        document.querySelectorAll('.pb-total').forEach(el => el.style.width = per + '%');
+        document.querySelectorAll('.p-txt').forEach(el => el.innerText = per + '%');
     }
 
     window.onload = () => {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        injectSidebar();
         setInterval(updateClock, 1000);
         updateClock();
         
         const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
-        document.getElementById('quote-text').innerText = `"${QUOTES[dayOfYear % QUOTES.length]}"`;
+        if(QUOTES) {
+            document.querySelectorAll('.quote-container').forEach(el => {
+                el.innerText = `"${QUOTES[dayOfYear % QUOTES.length]}"`;
+            });
+        }
         
         render();
     };
