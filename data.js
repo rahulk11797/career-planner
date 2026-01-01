@@ -211,3 +211,11 @@ window.MASTER_DATA = [
   ]
 }
 ];
+
+window.SIDEBAR_LINKS = [
+    { name: "LeetCode Solver", link: "https://leetcode.com", icon: "fa-code", color: "text-warning" },
+    { name: "System Design", link: "https://bytebytego.com", icon: "fa-diagram-project", color: "text-info" },
+    { name: "Java Internals", link: "https://baeldung.com", icon: "fa-mug-hot", color: "text-primary" },
+    { name: "Namaste Dev", link: "https://namastedev.com", icon: "fa-play", color: "text-danger" },
+    { name: "GitHub Prep", link: "https://github.com", icon: "fa-brands fa-github", color: "text-white" }
+];
