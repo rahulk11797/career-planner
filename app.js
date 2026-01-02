@@ -170,5 +170,11 @@ window.onload = () => {
     const theme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', theme);
     window.renderRoadmap();
+    
+    // Smooth scroll to the active day after a short delay
+    setTimeout(() => {
+        window.focusToday(false);
+    }, 800);
+
     setInterval(window.updateDateTime, 1000);
 };
