@@ -1,4 +1,5 @@
   // data.js
+  window.USER_START_DATE = "2026-01-01";
   window.MASTER_QUOTES = [
       "Consistency beats intensity. 1 hour every day > 15 hours once a week.",
       "System Design is the art of choosing which problems you want to have.",
@@ -525,9 +526,6 @@
     ]
   }
   ]
-
-
-
 
   window.SIDEBAR_LINKS = [
     {
