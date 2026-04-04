@@ -357,3 +357,23 @@ main.container-fluid {
         font-size: 1.5rem;
     }
 }
+
+/* Toast Notification */
+#quoteToast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+/* Quote Flash Animation */
+@keyframes quote-flash {
+    0% { opacity: 0; transform: translateX(30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.quote-flash {
+    animation: quote-flash 0.8s ease-out;
+}

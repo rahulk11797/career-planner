@@ -142,6 +142,12 @@ function updateUI() {
     if (desktopSidebar) desktopSidebar.innerHTML = sidebarHTML;
     if (mobileSidebar) mobileSidebar.innerHTML = sidebarHTML;
 
+    // Animate sidebar quotes
+    document.querySelectorAll('.quote-text').forEach(el => {
+        el.classList.add('quote-flash');
+        setTimeout(() => el.classList.remove('quote-flash'), 600);
+    });
+
     updateHeroQuote();
     updateStartDateLabel();
     window.updateDateTime();
@@ -190,7 +196,11 @@ function updateStartDateLabel() {
 
 function updateHeroQuote() {
     const quoteEl = document.getElementById('heroQuote');
-    if (quoteEl) quoteEl.textContent = '“' + sessionQuote + '”';
+    if (quoteEl) {
+        quoteEl.textContent = '“' + sessionQuote + '”';
+        quoteEl.classList.add('quote-flash');
+        setTimeout(() => quoteEl.classList.remove('quote-flash'), 600);
+    }
 }
 
 function saveStartDate(dateValue) {
@@ -807,6 +817,26 @@ window.onload = async () => {
     setTimeout(() => {
         window.focusToday(false);
     }, 1200);
+
+// Update quote every 10 minutes with slide animation
+setInterval(() => {
+    setRandomQuote();
+    updateUI();
+    showQuoteToast();
+}, 10 * 60 * 1000);
+
+// Show toast notification for quote update
+function showQuoteToast() {
+    const toastBody = document.getElementById('toastBody');
+    if (toastBody) {
+        toastBody.innerHTML = '<i class="fa-solid fa-quote-left me-2"></i>' + sessionQuote;
+    }
+    const toastEl = document.getElementById('quoteToast');
+    if (toastEl) {
+        const toast = new bootstrap.Toast(toastEl, { delay: 5000 });
+        toast.show();
+    }
+}
 
     // Update time display every second
     setInterval(window.updateDateTime, 1000);
