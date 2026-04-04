@@ -1,5 +1,5 @@
   // data.js
-  window.USER_START_DATE = "2026-01-19";
+  window.USER_START_DATE = "2026-04-05";
   window.MASTER_QUOTES = [
       "Consistency beats intensity. 1 hour every day > 15 hours once a week.",
       "System Design is the art of choosing which problems you want to have.",
@@ -101,14 +101,14 @@
     tasks: [
       { cat: "java", topic: "JVM Architecture, Class Loading, Bytecode, JIT", time: "07:00", link: "https://www.baeldung.com/jvm-vs-jre-vs-jdk", level: "medium" },
       { cat: "dsa", topic: "Time & Space Complexity + Big-O Analysis", time: "20:45", link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/", level: "easy" },
-      { cat: "system-design", topic: "Scalability Basics, Vertical vs Horizontal", time: "21:35", link: "https://www.datacamp.com/blog/horizontal-vs-vertical-scaling", level: "easy" }
+      { cat: "system-design", topic: "Scalability Basics, Vertical vs Horizontal", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#scalability", level: "easy" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Java Memory Model, Happens-Before, Visibility", time: "07:00", link: "https://www.baeldung.com/java-memory-model", level: "medium" },
       { cat: "dsa", topic: "Arrays & Prefix Sum Pattern", time: "20:45", link: "https://leetcode.com/problems/subarray-sum-equals-k/", level: "easy" },
-      { cat: "system-design", topic: "Latency vs Throughput + Percentiles", time: "21:35", link: "https://aws.amazon.com/builders-library/latency-and-throughput/", level: "medium" }
+      { cat: "system-design", topic: "Latency vs Throughput + Percentiles", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#latency-and-throughput", level: "medium" }
     ]
   },
   {
@@ -136,7 +136,7 @@
     tasks: [
       { cat: "java", topic: "synchronized, volatile, Atomic Variables", time: "07:00", link: "https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html", level: "medium" },
       { cat: "dsa", topic: "Stack & Monotonic Stack", time: "20:45", link: "https://leetcode.com/problems/daily-temperatures/", level: "medium" },
-      { cat: "system-design", topic: "PACELC & Trade-offs", time: "21:35", link: "https://dbms-not-only-sql.blogspot.com/2012/12/pacelc-theorem.html", level: "hard" }
+      { cat: "system-design", topic: "PACELC & Trade-offs", time: "21:35", link: "https://jepsen.io/consistency", level: "hard" }
     ]
   },
   {
@@ -157,14 +157,14 @@
     tasks: [
       { cat: "java", topic: "CompletableFuture Internals & Pitfalls", time: "07:00", link: "https://www.baeldung.com/java-completablefuture", level: "hard" },
       { cat: "dsa", topic: "Recursion & Backtracking", time: "20:45", link: "https://leetcode.com/problems/subsets/", level: "medium" },
-      { cat: "database", topic: "Indexes, Query Plans, Covering Index", time: "21:35", link: "https://use-the-index-luke.com/sql/where-clause/searching-for-ranges/index-range-scan", level: "medium" }
+      { cat: "database", topic: "Indexes, Query Plans, Covering Index", time: "21:35", link: "https://www.postgresql.org/docs/current/indexes.html", level: "medium" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Java NIO, Blocking vs Non-blocking IO", time: "07:00", link: "https://www.baeldung.com/java-nio-selector", level: "medium" },
       { cat: "dsa", topic: "Tree Traversals & Views", time: "20:45", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/", level: "easy" },
-      { cat: "system-design", topic: "Database Scaling Basics", time: "21:35", link: "https://www.prisma.io/dataguide/managing-databases/introduction-to-database-scaling", level: "easy" }
+      { cat: "system-design", topic: "Database Scaling Basics", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#scaling-your-database", level: "easy" }
     ]
   },
 
@@ -183,14 +183,14 @@
     tasks: [
       { cat: "java", topic: "Spring Bean Lifecycle, @PostConstruct, @PreDestroy", time: "07:00", link: "https://www.baeldung.com/spring-bean-lifecycle", level: "easy" },
       { cat: "dsa", topic: "Binary Heap Problems & K-way Merge", time: "20:45", link: "https://leetcode.com/problems/merge-k-sorted-lists/", level: "hard" },
-      { cat: "system-design", topic: "Message Queues Basics (Kafka vs SQS vs RabbitMQ)", time: "21:35", link: "https://www.instaclustr.com/blog/rabbitmq-vs-kafka-vs-sqs/", level: "easy" }
+      { cat: "system-design", topic: "Message Queues Basics (Kafka vs SQS vs RabbitMQ)", time: "21:35", link: "https://kafka.apache.org/documentation/#intro_concepts_and_terms", level: "easy" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Spring Proxies: JDK vs CGLIB", time: "07:00", link: "https://www.baeldung.com/spring-aop-vs-aspectj", level: "medium" },
       { cat: "dsa", topic: "Tree Traversals – DFS Variants", time: "20:45", link: "https://leetcode.com/problems/binary-tree-inorder-traversal/", level: "easy" },
-      { cat: "system-design", topic: "At-least-once vs Exactly-once Delivery", time: "21:35", link: "https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how/", level: "medium" }
+      { cat: "system-design", topic: "At-least-once vs Exactly-once Delivery", time: "21:35", link: "https://kafka.apache.org/documentation/#semantics", level: "medium" }
     ]
   },
   {
@@ -218,7 +218,7 @@
     tasks: [
       { cat: "java", topic: "Spring Boot Configuration: application.yml & Profiles", time: "07:00", link: "https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config", level: "easy" },
       { cat: "dsa", topic: "Topological Sort (BFS + DFS)", time: "20:45", link: "https://leetcode.com/problems/course-schedule/", level: "medium" },
-      { cat: "system-design", topic: "Schema Design & Normalization vs Denormalization", time: "21:35", link: "https://web.archive.org/web/20230607141344/https://martinfowler.com/articles/schemaless.html", level: "medium" }
+      { cat: "system-design", topic: "Schema Design & Normalization vs Denormalization", time: "21:35", link: "https://www.postgresql.org/docs/current/ddl-basics.html", level: "medium" }
     ]
   },
   {
@@ -260,28 +260,28 @@
     tasks: [
       { cat: "java", topic: "Spring Boot Testing – @SpringBootTest vs @WebMvcTest", time: "07:00", link: "https://www.baeldung.com/spring-boot-testing", level: "medium" },
       { cat: "dsa", topic: "Dynamic Programming – LIS Pattern", time: "20:45", link: "https://leetcode.com/problems/longest-increasing-subsequence/", level: "medium" },
-      { cat: "system-design", topic: "Service-to-Service Communication", time: "21:35", link: "https://aws.amazon.com/builders-library/service-communication/", level: "easy" }
+      { cat: "system-design", topic: "Service-to-Service Communication", time: "21:35", link: "https://microservices.io/patterns/communication-style/messaging.html", level: "easy" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Spring Boot Performance Anti-patterns", time: "07:00", link: "https://www.baeldung.com/spring-boot-performance", level: "medium" },
       { cat: "dsa", topic: "Bit Manipulation Basics", time: "20:45", link: "https://leetcode.com/problems/single-number/", level: "easy" },
-      { cat: "system-design", topic: "Synchronous vs Asynchronous Communication", time: "21:35", link: "https://www.confluent.io/learn/asynchronous-communication/", level: "easy" }
+      { cat: "system-design", topic: "Synchronous vs Asynchronous Communication", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#asynchronism", level: "easy" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Spring Boot Production Readiness Checklist", time: "07:00", link: "https://12factor.net/", level: "easy" },
       { cat: "dsa", topic: "DP – Coin Change & Counting Ways", time: "20:45", link: "https://leetcode.com/problems/coin-change/", level: "medium" },
-      { cat: "system-design", topic: "Design Read-heavy vs Write-heavy Systems", time: "21:35", link: "https://aws.amazon.com/builders-library/read-heavy-workloads/", level: "medium" }
+      { cat: "system-design", topic: "Design Read-heavy vs Write-heavy Systems", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#database", level: "medium" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Spring Boot Interview Traps & FAQs", time: "07:00", link: "https://www.baeldung.com/spring-interview-questions", level: "easy" },
       { cat: "dsa", topic: "Mixed Pattern Revision (Trees + Graphs)", time: "20:45", link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/", level: "hard" },
-      { cat: "system-design", topic: "Failure Handling & Graceful Degradation", time: "21:35", link: "https://aws.amazon.com/builders-library/handling-failures/", level: "medium" }
+      { cat: "system-design", topic: "Failure Handling & Graceful Degradation", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#resilience", level: "medium" }
     ]
   },
   {
@@ -307,21 +307,21 @@
     tasks: [
       { cat: "java", topic: "JVM GC Pauses, Latency SLAs & Throughput Trade-offs", time: "07:00", link: "https://docs.oracle.com/en/java/javase/17/gctuning/factors-affecting-garbage-collection-performance.html", level: "hard" },
       { cat: "dsa", topic: "Greedy – Activity Selection & Job Scheduling", time: "20:45", link: "https://leetcode.com/problems/non-overlapping-intervals/", level: "medium" },
-      { cat: "system-design", topic: "Traffic Estimation & Capacity Planning", time: "21:35", link: "https://aws.amazon.com/builders-library/capacity-planning/", level: "medium" }
+      { cat: "system-design", topic: "Traffic Estimation & Capacity Planning", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#back-of-the-envelope-calculations", level: "medium" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Thread Contention, False Sharing & CPU Caches", time: "07:00", link: "https://mechanical-sympathy.blogspot.com/2011/07/false-sharing.html", level: "hard" },
       { cat: "dsa", topic: "Greedy – Minimum Platforms & Jump Game", time: "20:45", link: "https://leetcode.com/problems/jump-game/", level: "easy" },
-      { cat: "system-design", topic: "Design for High Availability (Active-Active)", time: "21:35", link: "https://aws.amazon.com/builders-library/high-availability/", level: "medium" }
+      { cat: "system-design", topic: "Design for High Availability (Active-Active)", time: "21:35", link: "https://www.geeksforgeeks.org/high-availability-system-design/", level: "medium" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Async Systems: CompletableFuture vs Reactive Streams", time: "07:00", link: "https://www.baeldung.com/java-completablefuture-vs-project-reactor", level: "hard" },
       { cat: "dsa", topic: "Advanced Binary Search (Lower/Upper Bounds)", time: "20:45", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/", level: "medium" },
-      { cat: "system-design", topic: "Designing Idempotent Systems", time: "21:35", link: "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotence/", level: "medium" }
+      { cat: "system-design", topic: "Designing Idempotent Systems", time: "21:35", link: "https://stripe.com/docs/idempotency", level: "medium" }
     ]
   },
   {
@@ -335,14 +335,14 @@
     tasks: [
       { cat: "java", topic: "Java Profiling: JFR, JMC, Async Profiler", time: "07:00", link: "https://www.baeldung.com/java-flight-recorder-monitoring", level: "hard" },
       { cat: "dsa", topic: "DP on Strings – Edit Distance", time: "20:45", link: "https://leetcode.com/problems/edit-distance/", level: "hard" },
-      { cat: "system-design", topic: "Read Replicas, Replication Lag", time: "21:35", link: "https://aws.amazon.com/builders-library/replication-lag/", level: "medium" }
+      { cat: "system-design", topic: "Read Replicas, Replication Lag", time: "21:35", link: "https://www.postgresql.org/docs/current/warm-standby.html", level: "medium" }
     ]
   },
   {
     tasks: [
       { cat: "java", topic: "Heap Dump & Thread Dump Analysis", time: "07:00", link: "https://www.baeldung.com/java-analyze-heap-dump", level: "hard" },
       { cat: "dsa", topic: "DP on Trees – Max Path Sum", time: "20:45", link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/", level: "hard" },
-      { cat: "system-design", topic: "Sharding Strategies & Hot Partitions", time: "21:35", link: "https://aws.amazon.com/builders-library/sharding/", level: "medium" }
+      { cat: "system-design", topic: "Sharding Strategies & Hot Partitions", time: "21:35", link: "https://www.postgresql.org/docs/current/ddl-partitioning.html", level: "medium" }
     ]
   },
   {
@@ -370,7 +370,7 @@
     tasks: [
       { cat: "system-design", topic: "Kafka Producers, Consumers & Rebalancing", time: "07:00", link: "https://kafka.apache.org/documentation/#consumerconfigs", level: "medium" },
       { cat: "dsa", topic: "Graph – Topological DP", time: "20:45", link: "https://leetcode.com/problems/longest-path-in-a-directed-acyclic-graph/", level: "hard" },
-      { cat: "system-design", topic: "Exactly-once vs At-least-once Semantics", time: "21:35", link: "https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how/", level: "medium" }
+      { cat: "system-design", topic: "Exactly-once vs At-least-once Semantics", time: "21:35", link: "https://kafka.apache.org/documentation/#semantics", level: "medium" }
     ]
   },
   {
@@ -382,9 +382,9 @@
   },
   {
     tasks: [
-      { cat: "database", topic: "Database Sharding vs Partitioning", time: "07:00", link: "https://www.cockroachlabs.com/blog/sharding-vs-partitioning/", level: "medium" },
+      { cat: "database", topic: "Database Sharding vs Partitioning", time: "07:00", link: "https://www.geeksforgeeks.org/database-sharding-and-partitioning/", level: "medium" },
       { cat: "dsa", topic: "Advanced Greedy – Gas Station, Candy", time: "20:45", link: "https://leetcode.com/problems/gas-station/", level: "medium" },
-      { cat: "system-design", topic: "Designing for Multi-region Deployment", time: "21:35", link: "https://aws.amazon.com/builders-library/global-services/", level: "medium" }
+      { cat: "system-design", topic: "Designing for Multi-region Deployment", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#database-replication", level: "medium" },
     ]
   },
   {
@@ -410,7 +410,7 @@
   },
   {
     tasks: [
-      { cat: "observability", topic: "JVM Metrics, GC Metrics & Alerts", time: "07:00", link: "https://micrometer.io/docs/concepts", level: "medium" },
+      { cat: "observability", topic: "JVM Metrics, GC Metrics & Alerts", time: "07:00", link: "https://micrometer.io/", level: "medium" },
       { cat: "dsa", topic: "Hard Mixed DP Revision", time: "20:45", link: "https://leetcode.com/problems/burst-balloons/", level: "hard" },
       { cat: "system-design", topic: "SLOs, SLIs & Error Budgets", time: "21:35", link: "https://sre.google/sre-book/service-level-objectives/", level: "medium" }
     ]
@@ -438,14 +438,14 @@
     tasks: [
       { cat: "system-design", topic: "Design URL Shortener (TinyURL)", time: "07:00", link: "https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Sliding Window + Two Pointers", time: "20:45", link: "https://leetcode.com/problems/minimum-window-substring/", level: "hard" },
-      { cat: "interview", topic: "System Design Evaluation Criteria", time: "21:35", link: "https://martinfowler.com/articles/design-review.html", level: "easy" }
+      { cat: "interview", topic: "System Design Evaluation Criteria", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#how-to-approach-a-system-design-interview-question", level: "easy" }
     ]
   },
   {
     tasks: [
-      { cat: "system-design", topic: "Design Rate Limiter", time: "07:00", link: "https://aws.amazon.com/builders-library/rate-limiting-strategies/", level: "medium" },
+      { cat: "system-design", topic: "Design Rate Limiter", time: "07:00", link: "https://www.geeksforgeeks.org/design-a-rate-limiter/", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Stack & Monotonic Stack", time: "20:45", link: "https://leetcode.com/problems/largest-rectangle-in-histogram/", level: "hard" },
-      { cat: "interview", topic: "Handling Follow-up Questions in Interviews", time: "21:35", link: "https://www.interviewbit.com/blog/system-design-interview-questions/", level: "easy" }
+      { cat: "interview", topic: "Handling Follow-up Questions in Interviews", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#tips-for-the-interview", level: "easy" }
     ]
   },
   {
@@ -466,14 +466,14 @@
     tasks: [
       { cat: "system-design", topic: "Design News Feed / Instagram Feed", time: "07:00", link: "https://www.geeksforgeeks.org/design-instagram-architecture/", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Heaps & Greedy", time: "20:45", link: "https://leetcode.com/problems/task-scheduler/", level: "medium" },
-      { cat: "interview", topic: "Explaining Trade-offs Clearly", time: "21:35", link: "https://aws.amazon.com/builders-library/trade-offs/", level: "easy" }
+      { cat: "interview", topic: "Explaining Trade-offs Clearly", time: "21:35", link: "https://github.com/donnemartin/system-design-primer#trade-offs", level: "easy" }
     ]
   },
   {
     tasks: [
-      { cat: "system-design", topic: "Design Payment System", time: "07:00", link: "https://stripe.com/blog/payment-processing", level: "medium" },
+      { cat: "system-design", topic: "Design Payment System", time: "07:00", link: "https://stripe.com/docs/payments", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Dynamic Programming", time: "20:45", link: "https://leetcode.com/problems/coin-change/", level: "medium" },
-      { cat: "interview", topic: "Behavioral: Decision Making Under Pressure", time: "21:35", link: "https://hbr.org/2018/09/how-to-make-decisions-under-pressure", level: "easy" }
+      { cat: "interview", topic: "Behavioral: Decision Making Under Pressure", time: "21:35", link: "https://www.levels.fyi/blog/amazon-leadership-principles.html", level: "easy" }
     ]
   },
   {
@@ -487,14 +487,14 @@
     tasks: [
       { cat: "system-design", topic: "Design Search Autocomplete", time: "07:00", link: "https://www.geeksforgeeks.org/design-search-autocomplete-system/", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Bit Manipulation", time: "20:45", link: "https://leetcode.com/problems/single-number/", level: "easy" },
-      { cat: "interview", topic: "Resume Deep Dive Preparation", time: "21:35", link: "https://www.interviewkickstart.com/blog/how-to-prepare-for-resume-based-interviews", level: "easy" }
+      { cat: "interview", topic: "Resume Deep Dive Preparation", time: "21:35", link: "https://www.levels.fyi/blog/how-to-prepare-for-system-design-interviews/", level: "easy" }
     ]
   },
   {
     tasks: [
       { cat: "system-design", topic: "Design File Storage (Google Drive)", time: "07:00", link: "https://www.geeksforgeeks.org/design-google-drive/", level: "medium" },
       { cat: "dsa", topic: "Mock DSA – Mixed Hard Problems", time: "20:45", link: "https://leetcode.com/problems/burst-balloons/", level: "hard" },
-      { cat: "interview", topic: "Behavioral: Leadership Without Authority", time: "21:35", link: "https://www.mindtools.com/ak9k4xf/leadership-without-authority", level: "easy" }
+      { cat: "interview", topic: "Behavioral: Leadership Without Authority", time: "21:35", link: "https://www.levels.fyi/blog/amazon-leadership-principles.html", level: "easy" }
     ]
   },
   {

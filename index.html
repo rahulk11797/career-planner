@@ -11,41 +11,70 @@
 <body>
 
     <header class="glass-header no-print">
-        <div class="d-flex align-items-center gap-3">
-            <button class="btn d-lg-none p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                <i class="fa-solid fa-bars-staggered fa-lg text-accent"></i>
-            </button>
+        <div>
             <div class="fw-black h4 mb-0" style="letter-spacing:-1.5px">MASTERY<span class="text-primary">OS</span></div>
+            <div class="header-subtitle">Build the habit, one day at a time.</div>
         </div>
-        <div class="search-container no-print">
-            <i class="fa-solid fa-search search-icon"></i>
-            <input type="text" id="globalSearch" class="search-input" placeholder="Search topics..." onkeyup="filterContent()">
-        </div>
-        <div class="d-flex gap-2">
-            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
-            <button class="btn btn-sm btn-primary rounded-pill px-4 fw-bold" onclick="window.print()">EXPORT</button>
-        </div>
+        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
     </header>
 
-    <div class="container-fluid">
-        <div class="row">
-            <aside class="col-lg-3 d-none d-lg-block no-print sidebar" id="desktopSidebar"></aside>
-            <main class="col-lg-9 p-3 p-md-5">
-                <div id="roadmap-grid"></div>
-            </main>
+    <main class="container-fluid p-3 p-md-5">
+        <section class="hero-panel rounded-4 p-4 mb-5">
+            <div>
+                <div class="eyebrow">Daily practice made simple</div>
+                <h1 class="hero-title mb-3">Open. Practice. Repeat.</h1>
+                <p class="hero-copy">Focus on one daily task and keep progress visible. The simplest system wins.</p>
+                <div class="hero-quote mb-3" id="heroQuote"></div>
+                <div class="hero-start-label small opacity-75" id="startDateLabel"></div>
+            </div>
+            <div class="hero-actions mt-4">
+                <button class="btn btn-primary btn-lg rounded-pill" onclick="focusToday(true)">Focus Today</button>
+                <button class="btn btn-outline-primary btn-lg rounded-pill" onclick="resetStartDay()">Reset Start Day</button>
+            </div>
+        </section>
+
+        <div class="progress-dashboard mb-4" id="progressDashboard">
+            <div class="row g-3">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card text-center p-4 rounded-4">
+                        <i class="fa-solid fa-fire fa-2xl mb-3 text-warning"></i>
+                        <div class="h3 fw-black mb-1" id="currentStreak">0</div>
+                        <div class="small opacity-75">DAY STREAK</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card text-center p-4 rounded-4">
+                        <i class="fa-solid fa-chart-line fa-2xl mb-3 text-success"></i>
+                        <div class="h3 fw-black mb-1" id="overallProgress">0%</div>
+                        <div class="small opacity-75">OVERALL PROGRESS</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card text-center p-4 rounded-4">
+                        <i class="fa-solid fa-clock fa-2xl mb-3 text-info"></i>
+                        <div class="h3 fw-black mb-1" id="studyTime">0h</div>
+                        <div class="small opacity-75">ESTIMATED EFFORT</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card text-center p-4 rounded-4">
+                        <i class="fa-solid fa-calendar-check fa-2xl mb-3 text-primary"></i>
+                        <div class="h3 fw-black mb-1" id="daysCompleted">0</div>
+                        <div class="small opacity-75">DAYS COMPLETED</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div id="roadmap-grid"></div>
+    </main>
 
     <button class="fab-focus d-lg-none no-print" onclick="focusToday(true)">
         <i class="fa-solid fa-crosshairs fa-xl"></i>
     </button>
 
-    <div class="offcanvas offcanvas-start no-print" id="mobileMenu" style="background: var(--sidebar-bg)">
-        <div class="offcanvas-body" id="mobileSidebar"></div>
-    </div>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="data.js"></script>
-<script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
