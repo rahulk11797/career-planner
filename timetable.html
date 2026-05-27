@@ -8,25 +8,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    font-family:'Poppins',sans-serif;
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #08101d 0%, #030608 100%);
+    color: #e2e8f0;
 }
 
-.glass{
-    background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.08);
+.glass {
+    background: rgba(15,23,42,0.82);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(148,163,184,0.08);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
 }
 
-.gradient-text{
-    background:linear-gradient(to right,#38bdf8,#22c55e);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.gradient-text {
+    background: none;
+    color: #f8fafc;
 }
 
-.time-highlight{
-    color:#22c55e;
-    font-weight:600;
+.time-highlight {
+    color: #6ee7b7;
+    font-weight: 600;
+}
+
+.table-minimal th,
+.table-minimal td {
+    border-color: rgba(148,163,184,0.08);
+}
+
+.table-minimal th {
+    border-bottom-width: 1px;
+}
+
+.pill {
+    background: rgba(148,163,184,0.12);
+    color: #e2e8f0;
 }
 </style>
 </head>
@@ -35,23 +52,49 @@ body{
 
 <div class="max-w-7xl mx-auto space-y-8">
 
+    <section class="glass rounded-3xl p-8 shadow-2xl">
+        <h2 class="text-2xl font-bold mb-6">⚡ Quick Links</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
+                <h3 class="font-semibold text-emerald-400 mb-2">📘 DSA</h3>
+                <p class="text-sm text-slate-400">Namaste DSA</p>
+            </a>
+            <a href="https://interviewready.io/account" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
+                <h3 class="font-semibold text-sky-400 mb-2">🏗 System Design</h3>
+                <p class="text-sm text-slate-400">Interview Ready</p>
+            </a>
+            <a href="https://www.udemy.com/share/10f0oZ3@zlNS_1kGMgVZBZqlPvfXAJ4IJ2D_NMJ8wrjkRxq77Fa8I5URxa6qVuq2e8ODUc04/" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
+                <h3 class="font-semibold text-purple-400 mb-2">☕ Java Spring Boot</h3>
+                <p class="text-sm text-slate-400">Udemy</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PL6W8uoQQ2c60yO3LbjYkpKikwgAZHAT5o" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
+                <h3 class="font-semibold text-orange-400 mb-2">🔗 Microservices</h3>
+                <p class="text-sm text-slate-400">YouTube</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
+                <h3 class="font-semibold text-red-400 mb-2">⚙ DevOps</h3>
+                <p class="text-sm text-slate-400">YouTube</p>
+            </a>
+        </div>
+    </section>
+
     <section class="glass rounded-3xl p-8 md:p-12 text-center shadow-2xl">
-        <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-5">
-            🚀 Product Company Preparation Blueprint
+        <h1 class="text-5xl md:text-6xl font-semibold mb-4">
+            Product Company Preparation Blueprint
         </h1>
 
-        <p class="text-slate-300 text-lg leading-8 max-w-4xl mx-auto">
-            A realistic and sustainable routine designed for a working software engineer balancing job, gym, family and career growth.
-            Optimized for consistency, deep work and long-term success.
+        <p class="text-slate-300 text-base md:text-lg leading-8 max-w-3xl mx-auto">
+            A clean, sustainable weekday routine for a working engineer who wants career growth without burnout.
+            Keep the plan simple, consistent, and easy to follow.
         </p>
 
         <div class="flex flex-wrap justify-center gap-3 mt-8">
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">💻 DSA</span>
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">☕ Java + Spring Boot</span>
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">🏗 System Design</span>
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">🤖 AI & Agentic AI</span>
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">🏋️ Fitness</span>
-            <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-200">❤️ Family Balance</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">DSA</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">Java + Spring</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">System Design</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">AI</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">Fitness</span>
+            <span class="pill px-4 py-2 rounded-full text-sm">Balance</span>
         </div>
     </section>
 
@@ -62,74 +105,63 @@ body{
         </div>
 
         <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full text-left border-collapse table-minimal">
                 <thead>
-                    <tr class="bg-slate-800/50 text-slate-200">
+                    <tr class="bg-slate-800/40 text-slate-200">
                         <th class="p-5 rounded-l-2xl">Time</th>
-                        <th class="p-5">Activity</th>
-                        <th class="p-5 rounded-r-2xl">Purpose</th>
+                        <th class="p-5 rounded-r-2xl">Focus</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">6:00 – 6:15 AM</td>
-                        <td class="p-5">Wake up + water + sunlight</td>
-                        <td class="p-5 text-slate-400">Boost alertness and energy naturally</td>
+                        <td class="p-5">Wake up, hydrate, sunlight</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">6:15 – 7:15 AM</td>
                         <td class="p-5">Gym</td>
-                        <td class="p-5 text-slate-400">Improve focus, health and stress management</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">7:15 – 8:00 AM</td>
-                        <td class="p-5">Freshen up + breakfast</td>
-                        <td class="p-5 text-slate-400">Calm and organized start to the day</td>
+                        <td class="p-5">Breakfast + prepare</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition bg-emerald-500/10">
                         <td class="p-5 text-emerald-400 font-bold">8:00 – 9:15 AM</td>
-                        <td class="p-5 font-semibold">Deep Study Session</td>
-                        <td class="p-5 text-slate-300">Peak brain-performance learning window</td>
+                        <td class="p-5 font-semibold">Deep study</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">9:15 – 10:15 AM</td>
-                        <td class="p-5">Commute + podcasts/revision</td>
-                        <td class="p-5 text-slate-400">Passive learning and revision</td>
+                        <td class="p-5">Quick review</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">10:30 AM – 6:30 PM</td>
-                        <td class="p-5">Office work</td>
-                        <td class="p-5 text-slate-400">Build real-world engineering experience</td>
+                        <td class="p-5">Work</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">7:00 – 8:00 PM</td>
-                        <td class="p-5">Family time + dinner</td>
-                        <td class="p-5 text-slate-400">Mental recovery and healthy balance</td>
+                        <td class="p-5">Family + dinner</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition bg-emerald-500/10">
                         <td class="p-5 text-emerald-400 font-bold">8:00 – 9:30 PM</td>
-                        <td class="p-5 font-semibold">Interview prep / projects</td>
-                        <td class="p-5 text-slate-300">Career growth and implementation skills</td>
+                        <td class="p-5 font-semibold">Practice / project</td>
                     </tr>
 
                     <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">9:30 – 10:00 PM</td>
-                        <td class="p-5">Relax + plan next day</td>
-                        <td class="p-5 text-slate-400">Reduce stress and improve sleep quality</td>
+                        <td class="p-5">Wind down + plan</td>
                     </tr>
 
                     <tr class="hover:bg-slate-900/40 transition">
                         <td class="p-5 text-sky-400 font-semibold">10:15 PM</td>
                         <td class="p-5">Sleep</td>
-                        <td class="p-5 text-slate-400">Recovery, memory retention and consistency</td>
                     </tr>
                 </tbody>
             </table>
@@ -138,58 +170,37 @@ body{
 
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">🌅 Morning Study Rotation</h2>
-
+        <div class="glass rounded-3xl p-8 shadow-2xl border border-emerald-500/20">
+            <h2 class="text-2xl font-bold mb-6 text-emerald-400">📌 Daily Routine</h2>
             <div class="space-y-4 text-slate-300">
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Monday</span>
-                    <span>DSA (Arrays & Strings)</span>
+                <div class="rounded-2xl bg-slate-900/40 p-4">
+                    <p class="font-semibold mb-2">Morning</p>
+                    <p>One focused concept study block.</p>
                 </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Tuesday</span>
-                    <span>Java + Spring Boot</span>
+                <div class="rounded-2xl bg-slate-900/40 p-4">
+                    <p class="font-semibold mb-2">Midday</p>
+                    <p>Quick review or recap during commute.</p>
                 </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Wednesday</span>
-                    <span>Trees & Graphs</span>
+                <div class="rounded-2xl bg-slate-900/40 p-4">
+                    <p class="font-semibold mb-2">Evening</p>
+                    <p>Apply it with practice or a small build.</p>
                 </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Thursday</span>
-                    <span>System Design</span>
-                </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Friday</span>
-                    <span>LLD + Backend Concepts</span>
+                <div class="rounded-2xl bg-slate-900/40 p-4">
+                    <p class="font-semibold mb-2">Night</p>
+                    <p>Capture one takeaway and set one priority.</p>
                 </div>
             </div>
         </div>
 
-        <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">🌙 Evening Session Rotation</h2>
-
-            <div class="space-y-4 text-slate-300">
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Monday</span>
-                    <span>LeetCode Practice</span>
-                </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Tuesday</span>
-                    <span>Microservices + Kafka</span>
-                </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Wednesday</span>
-                    <span>System Design Practice</span>
-                </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Thursday</span>
-                    <span>Build Real Projects</span>
-                </div>
-                <div class="flex justify-between bg-slate-900/40 rounded-xl p-4">
-                    <span>Friday</span>
-                    <span>AI + Agentic AI</span>
-                </div>
-            </div>
+        <div class="glass rounded-3xl p-8 shadow-2xl border border-slate-800">
+            <h2 class="text-2xl font-bold mb-6">🧭 Weekly Focus</h2>
+            <ul class="space-y-3 text-slate-300">
+                <li class="rounded-2xl bg-slate-900/40 p-4">DSA fundamentals</li>
+                <li class="rounded-2xl bg-slate-900/40 p-4">Java + backend</li>
+                <li class="rounded-2xl bg-slate-900/40 p-4">System design</li>
+                <li class="rounded-2xl bg-slate-900/40 p-4">Projects and architecture</li>
+                <li class="rounded-2xl bg-slate-900/40 p-4">Interview readiness</li>
+            </ul>
         </div>
 
     </section>
@@ -197,26 +208,20 @@ body{
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">🗓 Saturday Plan</h2>
-            <ul class="space-y-4 text-slate-300">
-                <li>✅ Mock interviews</li>
-                <li>✅ Timed coding rounds</li>
-                <li>✅ DSA revision</li>
-                <li>✅ Resume improvement</li>
-                <li>✅ Project development</li>
-                <li>✅ Family & recovery time</li>
+            <h2 class="text-2xl font-bold mb-6">🗓 Saturday</h2>
+            <ul class="space-y-3 text-slate-300">
+                <li>Mock interview practice</li>
+                <li>Focused coding review</li>
+                <li>Recovery time</li>
             </ul>
         </div>
 
         <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">☀ Sunday Plan</h2>
-            <ul class="space-y-4 text-slate-300">
-                <li>✅ Deep System Design learning</li>
-                <li>✅ Backend architecture study</li>
-                <li>✅ Weekly review & planning</li>
-                <li>✅ Light AI exploration</li>
-                <li>✅ Full mental recovery</li>
-                <li>✅ Prepare for Monday calmly</li>
+            <h2 class="text-2xl font-bold mb-6">☀ Sunday</h2>
+            <ul class="space-y-3 text-slate-300">
+                <li>Weekly review</li>
+                <li>Plan next week</li>
+                <li>Rest and reset</li>
             </ul>
         </div>
 
@@ -300,30 +305,30 @@ body{
             <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
                 <h3 class="text-2xl font-semibold mb-5 text-sky-400">Phase 1 (0–3 Months)</h3>
                 <ul class="space-y-3 text-slate-300">
-                    <li>DSA basics</li>
-                    <li>Java fundamentals</li>
-                    <li>Spring Boot mastery</li>
-                    <li>SQL optimization</li>
+                    <li>DSA fundamentals</li>
+                    <li>Java + Spring Boot foundations</li>
+                    <li>Backend architecture basics</li>
+                    <li>SQL and query performance</li>
                 </ul>
             </div>
 
             <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
                 <h3 class="text-2xl font-semibold mb-5 text-emerald-400">Phase 2 (3–6 Months)</h3>
                 <ul class="space-y-3 text-slate-300">
-                    <li>System Design</li>
-                    <li>Microservices</li>
-                    <li>Docker + AWS basics</li>
-                    <li>Production-style project</li>
+                    <li>System Design principles</li>
+                    <li>Distributed systems and APIs</li>
+                    <li>Microservices and integration</li>
+                    <li>Production-quality projects</li>
                 </ul>
             </div>
 
             <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
                 <h3 class="text-2xl font-semibold mb-5 text-purple-400">Phase 3 (6–12 Months)</h3>
                 <ul class="space-y-3 text-slate-300">
-                    <li>Mock interviews</li>
-                    <li>Product company prep</li>
-                    <li>AI integrations</li>
-                    <li>Advanced backend engineering</li>
+                    <li>Interview problem solving</li>
+                    <li>Advanced backend systems</li>
+                    <li>AI and tooling integration</li>
+                    <li>Product company readiness</li>
                 </ul>
             </div>
 
