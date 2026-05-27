@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#1e293b"/>
+  
+  <!-- Rocket body -->
+  <rect x="26" y="12" width="12" height="32" fill="#38bdf8" rx="4"/>
+  
+  <!-- Rocket window -->
+  <circle cx="32" cy="20" r="3.5" fill="#0f172a"/>
+  
+  <!-- Rocket flame -->
+  <polygon points="32,44 24,52 32,48 40,52" fill="#f97316"/>
+  
+  <!-- Left fin -->
+  <polygon points="26,36 18,44 26,40" fill="#22c55e"/>
+  
+  <!-- Right fin -->
+  <polygon points="38,36 46,44 38,40" fill="#22c55e"/>
+</svg>
