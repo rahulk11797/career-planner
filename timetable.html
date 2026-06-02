@@ -1,347 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Blueprint</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Blueprint</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<style>
-body {
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(180deg, #08101d 0%, #030608 100%);
-    color: #e2e8f0;
-}
+    <style>
+        * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
 
-.glass {
-    background: rgba(15,23,42,0.82);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(148,163,184,0.08);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
-}
+        body {
+            background: #0a0a0f;
+            color: #e4e4e7;
+        }
 
-.gradient-text {
-    background: none;
-    color: #f8fafc;
-}
+        .card {
+            background: #111118;
+            border: 1px solid #1e1e2a;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
 
-.time-highlight {
-    color: #6ee7b7;
-    font-weight: 600;
-}
+        .card:hover {
+            border-color: #2a2a3a;
+        }
 
-.table-minimal th,
-.table-minimal td {
-    border-color: rgba(148,163,184,0.08);
-}
+        .card-inner {
+            background: #16161f;
+            border: 1px solid #1e1e2a;
+        }
 
-.table-minimal th {
-    border-bottom-width: 1px;
-}
+        .accent-row {
+            background: rgba(52, 211, 153, 0.04);
+            border-left: 3px solid #34d399;
+        }
 
-.pill {
-    background: rgba(148,163,184,0.12);
-    color: #e2e8f0;
-}
-</style>
+        .tag {
+            background: #1a1a24;
+            border: 1px solid #2a2a3a;
+            color: #a1a1aa;
+            font-size: 0.75rem;
+            letter-spacing: 0.03em;
+        }
+
+        .link-card {
+            background: #111118;
+            border: 1px solid #1e1e2a;
+            transition: all 0.2s ease;
+        }
+
+        .link-card:hover {
+            background: #16161f;
+            border-color: #34d399;
+            transform: translateY(-2px);
+        }
+
+        table tr {
+            transition: background 0.15s ease;
+        }
+
+        .phase-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+        }
+
+        .phase-1::before { background: linear-gradient(90deg, #38bdf8, #38bdf880); }
+        .phase-2::before { background: linear-gradient(90deg, #34d399, #34d39980); }
+        .phase-3::before { background: linear-gradient(90deg, #a78bfa, #a78bfa80); }
+    </style>
 </head>
 
-<body class="bg-slate-950 text-white min-h-screen p-5 md:p-10">
+<body class="min-h-screen p-4 md:p-8 lg:p-12">
 
-<div class="max-w-7xl mx-auto space-y-8">
+    <div class="max-w-6xl mx-auto space-y-6">
 
-    <section class="glass rounded-3xl p-8 shadow-2xl">
-        <h2 class="text-2xl font-bold mb-6">⚡ Quick Links</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
-                <h3 class="font-semibold text-emerald-400 mb-2">📘 DSA</h3>
-                <p class="text-sm text-slate-400">Namaste DSA</p>
-            </a>
-            <a href="https://interviewready.io/account" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
-                <h3 class="font-semibold text-sky-400 mb-2">🏗 System Design</h3>
-                <p class="text-sm text-slate-400">Interview Ready</p>
-            </a>
-            <a href="https://www.udemy.com/share/10f0oZ3@zlNS_1kGMgVZBZqlPvfXAJ4IJ2D_NMJ8wrjkRxq77Fa8I5URxa6qVuq2e8ODUc04/" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
-                <h3 class="font-semibold text-purple-400 mb-2">☕ Java Spring Boot</h3>
-                <p class="text-sm text-slate-400">Udemy</p>
-            </a>
-            <a href="https://www.youtube.com/playlist?list=PL6W8uoQQ2c60yO3LbjYkpKikwgAZHAT5o" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
-                <h3 class="font-semibold text-orange-400 mb-2">🔗 Microservices</h3>
-                <p class="text-sm text-slate-400">YouTube</p>
-            </a>
-            <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-slate-900/40 p-6 hover:bg-slate-900/60 transition border border-slate-800">
-                <h3 class="font-semibold text-red-400 mb-2">⚙ DevOps</h3>
-                <p class="text-sm text-slate-400">YouTube</p>
-            </a>
-        </div>
-    </section>
+        <!-- Quick Links -->
+        <section class="card rounded-2xl p-6">
+            <h2 class="text-lg font-semibold mb-4 text-zinc-300">⚡ Quick Links</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-4">
+                    <p class="font-medium text-emerald-400 text-sm">📘 DSA</p>
+                    <p class="text-xs text-zinc-500 mt-1">Namaste DSA</p>
+                </a>
+                <a href="https://interviewready.io/account" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-4">
+                    <p class="font-medium text-sky-400 text-sm">🏗 System Design</p>
+                    <p class="text-xs text-zinc-500 mt-1">Interview Ready</p>
+                </a>
+                <a href="https://www.udemy.com/share/10f0oZ3@zlNS_1kGMgVZBZqlPvfXAJ4IJ2D_NMJ8wrjkRxq77Fa8I5URxa6qVuq2e8ODUc04/"
+                    target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-4">
+                    <p class="font-medium text-purple-400 text-sm">☕ Spring Boot</p>
+                    <p class="text-xs text-zinc-500 mt-1">Udemy</p>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PL6W8uoQQ2c60yO3LbjYkpKikwgAZHAT5o" target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card rounded-xl p-4">
+                    <p class="font-medium text-orange-400 text-sm">🔗 Microservices</p>
+                    <p class="text-xs text-zinc-500 mt-1">YouTube</p>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card rounded-xl p-4">
+                    <p class="font-medium text-red-400 text-sm">⚙ DevOps</p>
+                    <p class="text-xs text-zinc-500 mt-1">YouTube</p>
+                </a>
+            </div>
+        </section>
 
-    <section class="glass rounded-3xl p-8 md:p-12 text-center shadow-2xl">
-        <h1 class="text-6xl md:text-7xl font-bold mb-4">
-            Career Blueprint
-        </h1>
+        <!-- Hero -->
+        <section class="card rounded-2xl p-8 md:p-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+                Career Blueprint
+            </h1>
+            <p class="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                A sustainable weekday routine for a working engineer. Simple, consistent, no burnout.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 mt-6">
+                <span class="tag px-3 py-1.5 rounded-full">DSA</span>
+                <span class="tag px-3 py-1.5 rounded-full">Java + Spring</span>
+                <span class="tag px-3 py-1.5 rounded-full">System Design</span>
+                <span class="tag px-3 py-1.5 rounded-full">AI</span>
+                <span class="tag px-3 py-1.5 rounded-full">Fitness</span>
+                <span class="tag px-3 py-1.5 rounded-full">Balance</span>
+            </div>
+        </section>
 
-        <p class="text-slate-300 text-base md:text-lg leading-8 max-w-3xl mx-auto">
-            A clean, sustainable weekday routine for a working engineer who wants career growth without burnout.
-            Keep the plan simple, consistent, and easy to follow.
-        </p>
+        <!-- Timetable -->
+        <section class="card rounded-2xl p-6 overflow-hidden">
+            <div class="flex items-center justify-between mb-5">
+                <h2 class="text-xl font-bold text-white">📅 Daily Timetable</h2>
+                <span class="tag px-3 py-1 rounded-full">Mon – Fri</span>
+            </div>
 
-        <div class="flex flex-wrap justify-center gap-3 mt-8">
-            <span class="pill px-4 py-2 rounded-full text-sm">DSA</span>
-            <span class="pill px-4 py-2 rounded-full text-sm">Java + Spring</span>
-            <span class="pill px-4 py-2 rounded-full text-sm">System Design</span>
-            <span class="pill px-4 py-2 rounded-full text-sm">AI</span>
-            <span class="pill px-4 py-2 rounded-full text-sm">Fitness</span>
-            <span class="pill px-4 py-2 rounded-full text-sm">Balance</span>
-        </div>
-    </section>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="text-zinc-500 text-xs uppercase tracking-wider">
+                            <th class="text-left p-3 font-medium">Time</th>
+                            <th class="text-left p-3 font-medium">Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-300">
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">6:00 – 6:15 AM</td>
+                            <td class="p-3">Wake up, hydrate, sunlight (no phone)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 accent-row">
+                            <td class="p-3 text-emerald-400 font-mono text-xs font-semibold">6:15 – 7:15 AM</td>
+                            <td class="p-3 font-semibold text-emerald-300">Deep study (topic decided night before)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">7:15 – 7:30 AM</td>
+                            <td class="p-3">Quick review + notes</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">7:30 – 8:30 AM</td>
+                            <td class="p-3">Gym (consolidates morning learning)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">8:30 – 9:15 AM</td>
+                            <td class="p-3">Breakfast + prepare</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">9:15 – 10:15 AM</td>
+                            <td class="p-3">Drive to work (podcast / audio review)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">10:30 AM – 6:30 PM</td>
+                            <td class="p-3 text-zinc-400">Work</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">6:30 – 7:15 PM</td>
+                            <td class="p-3">Drive home (decompress / podcast)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">7:15 – 8:00 PM</td>
+                            <td class="p-3">Family + dinner</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 accent-row">
+                            <td class="p-3 text-emerald-400 font-mono text-xs font-semibold">8:00 – 8:45 PM</td>
+                            <td class="p-3 font-semibold text-emerald-300">Focused practice (DSA / coding)</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 accent-row">
+                            <td class="p-3 text-emerald-400 font-mono text-xs font-semibold">8:50 – 9:30 PM</td>
+                            <td class="p-3 font-semibold text-emerald-300">Project work / light build</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">9:30 – 10:00 PM</td>
+                            <td class="p-3">Wind down — pick tomorrow's study topic + 1 priority</td>
+                        </tr>
+                        <tr class="border-t border-zinc-800/50 hover:bg-zinc-900/30">
+                            <td class="p-3 text-zinc-500 font-mono text-xs">10:15 PM</td>
+                            <td class="p-3">Sleep</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <section class="glass rounded-3xl p-8 shadow-2xl overflow-hidden">
-        <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
-            <h2 class="text-3xl font-bold">📅 Daily Timetable</h2>
-            <div class="text-slate-400">Mon – Fri Routine</div>
-        </div>
+        <!-- Daily Routine + Weekly Focus -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse table-minimal">
-                <thead>
-                    <tr class="bg-slate-800/40 text-slate-200">
-                        <th class="p-5 rounded-l-2xl">Time</th>
-                        <th class="p-5 rounded-r-2xl">Focus</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">6:00 – 6:15 AM</td>
-                        <td class="p-5">Wake up, hydrate, sunlight</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">6:15 – 7:15 AM</td>
-                        <td class="p-5">Gym</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">7:15 – 8:00 AM</td>
-                        <td class="p-5">Breakfast + prepare</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition bg-emerald-500/10">
-                        <td class="p-5 text-emerald-400 font-bold">8:00 – 9:15 AM</td>
-                        <td class="p-5 font-semibold">Deep study</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">9:15 – 10:15 AM</td>
-                        <td class="p-5">Quick review</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">10:30 AM – 6:30 PM</td>
-                        <td class="p-5">Work</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">7:00 – 8:00 PM</td>
-                        <td class="p-5">Family + dinner</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition bg-emerald-500/10">
-                        <td class="p-5 text-emerald-400 font-bold">8:00 – 9:30 PM</td>
-                        <td class="p-5 font-semibold">Practice / project</td>
-                    </tr>
-
-                    <tr class="border-b border-slate-800 hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">9:30 – 10:00 PM</td>
-                        <td class="p-5">Wind down + plan</td>
-                    </tr>
-
-                    <tr class="hover:bg-slate-900/40 transition">
-                        <td class="p-5 text-sky-400 font-semibold">10:15 PM</td>
-                        <td class="p-5">Sleep</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div class="glass rounded-3xl p-8 shadow-2xl border border-emerald-500/20">
-            <h2 class="text-2xl font-bold mb-6 text-emerald-400">📌 Daily Routine</h2>
-            <div class="space-y-4 text-slate-300">
-                <div class="rounded-2xl bg-slate-900/40 p-4">
-                    <p class="font-semibold mb-2">Morning</p>
-                    <p>One focused concept study block.</p>
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-4 text-emerald-400">📌 Daily Routine</h2>
+                <div class="space-y-3">
+                    <div class="card-inner rounded-xl p-4">
+                        <p class="font-medium text-zinc-200 text-sm">Morning</p>
+                        <p class="text-zinc-500 text-xs mt-1">One focused concept study block.</p>
+                    </div>
+                    <div class="card-inner rounded-xl p-4">
+                        <p class="font-medium text-zinc-200 text-sm">Commute</p>
+                        <p class="text-zinc-500 text-xs mt-1">Listen to tech podcasts or audio recaps while driving.</p>
+                    </div>
+                    <div class="card-inner rounded-xl p-4">
+                        <p class="font-medium text-zinc-200 text-sm">Evening (Split)</p>
+                        <p class="text-zinc-500 text-xs mt-1">45 min focused practice → 5 min break → 40 min project.</p>
+                    </div>
+                    <div class="card-inner rounded-xl p-4">
+                        <p class="font-medium text-zinc-200 text-sm">Night</p>
+                        <p class="text-zinc-500 text-xs mt-1">Pick tomorrow's exact study topic + write 1 priority.</p>
+                    </div>
                 </div>
-                <div class="rounded-2xl bg-slate-900/40 p-4">
-                    <p class="font-semibold mb-2">Midday</p>
-                    <p>Quick review or recap during commute.</p>
+            </div>
+
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-4 text-zinc-200">🧭 Weekly Focus</h2>
+                <div class="space-y-2">
+                    <div class="card-inner rounded-xl px-4 py-3 text-sm text-zinc-300">DSA fundamentals</div>
+                    <div class="card-inner rounded-xl px-4 py-3 text-sm text-zinc-300">Java + backend</div>
+                    <div class="card-inner rounded-xl px-4 py-3 text-sm text-zinc-300">System design</div>
+                    <div class="card-inner rounded-xl px-4 py-3 text-sm text-zinc-300">Projects and architecture</div>
+                    <div class="card-inner rounded-xl px-4 py-3 text-sm text-zinc-300">Interview readiness</div>
                 </div>
-                <div class="rounded-2xl bg-slate-900/40 p-4">
-                    <p class="font-semibold mb-2">Evening</p>
-                    <p>Apply it with practice or a small build.</p>
+            </div>
+
+        </section>
+
+        <!-- Weekend -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-4 text-zinc-200">🗓 Saturday</h2>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Mock interview practice</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Focused coding review</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Recovery time</li>
+                </ul>
+            </div>
+
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-4 text-zinc-200">☀ Sunday</h2>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Weekly review</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Plan next week</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Rest and reset</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Weekly Targets -->
+        <section class="card rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-6 text-white">🎯 Weekly Targets</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <div class="card-inner rounded-xl p-5">
+                    <h3 class="text-sm font-semibold mb-3 text-emerald-400">📘 DSA</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>8–10 problems weekly</li>
+                        <li>Focus on patterns</li>
+                        <li>Revise weak topics</li>
+                    </ul>
                 </div>
-                <div class="rounded-2xl bg-slate-900/40 p-4">
-                    <p class="font-semibold mb-2">Night</p>
-                    <p>Capture one takeaway and set one priority.</p>
+
+                <div class="card-inner rounded-xl p-5">
+                    <h3 class="text-sm font-semibold mb-3 text-sky-400">🏗 System Design</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>2 concepts weekly</li>
+                        <li>Practice scalability</li>
+                        <li>Study architectures</li>
+                    </ul>
+                </div>
+
+                <div class="card-inner rounded-xl p-5">
+                    <h3 class="text-sm font-semibold mb-3 text-purple-400">☕ Backend</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>Spring Boot mastery</li>
+                        <li>Microservices</li>
+                        <li>SQL optimization</li>
+                    </ul>
+                </div>
+
+                <div class="card-inner rounded-xl p-5">
+                    <h3 class="text-sm font-semibold mb-3 text-orange-400">🤖 AI Skills</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>Learn AI agents</li>
+                        <li>Explore LangChain</li>
+                        <li>Build integrations</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Implementation Intentions -->
+        <section class="card rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-2 text-white">🧠 Implementation Intentions</h2>
+            <p class="text-xs text-zinc-500 mb-5">Research: "If-then" planning makes follow-through 2-3x more likely (Gollwitzer, 1999)</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-xs text-zinc-500 mb-1">IF it's 8:00 AM →</p>
+                    <p class="text-sm text-zinc-200">Open [specific resource] and solve [specific problem type]</p>
+                </div>
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-xs text-zinc-500 mb-1">IF it's 8:00 PM →</p>
+                    <p class="text-sm text-zinc-200">Open IDE and work on [yesterday's planned task]</p>
+                </div>
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-xs text-zinc-500 mb-1">IF I feel unmotivated →</p>
+                    <p class="text-sm text-zinc-200">Do only 2 minutes of review (see Minimum Viable Day)</p>
+                </div>
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-xs text-zinc-500 mb-1">IF it's 9:30 PM →</p>
+                    <p class="text-sm text-zinc-200">Write tomorrow's exact topic + intent in one sentence</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="glass rounded-3xl p-8 shadow-2xl border border-slate-800">
-            <h2 class="text-2xl font-bold mb-6">🧭 Weekly Focus</h2>
-            <ul class="space-y-3 text-slate-300">
-                <li class="rounded-2xl bg-slate-900/40 p-4">DSA fundamentals</li>
-                <li class="rounded-2xl bg-slate-900/40 p-4">Java + backend</li>
-                <li class="rounded-2xl bg-slate-900/40 p-4">System design</li>
-                <li class="rounded-2xl bg-slate-900/40 p-4">Projects and architecture</li>
-                <li class="rounded-2xl bg-slate-900/40 p-4">Interview readiness</li>
-            </ul>
-        </div>
+        <!-- Minimum Viable Day -->
+        <section class="card rounded-2xl p-6" style="border-color: #f59e0b20;">
+            <div class="flex items-start gap-4">
+                <span class="text-2xl">🔥</span>
+                <div>
+                    <h2 class="text-lg font-bold text-amber-400 mb-1">Minimum Viable Day (2-Minute Rule)</h2>
+                    <p class="text-xs text-zinc-500 mb-4">Research: Starting is 90% of habit formation. Never do zero. (BJ Fogg, Stanford)</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="card-inner rounded-xl p-3 text-center">
+                            <p class="text-amber-400 text-lg font-bold">10 min</p>
+                            <p class="text-xs text-zinc-500">Review yesterday's notes</p>
+                        </div>
+                        <div class="card-inner rounded-xl p-3 text-center">
+                            <p class="text-amber-400 text-lg font-bold">1 problem</p>
+                            <p class="text-xs text-zinc-500">Solve any easy DSA</p>
+                        </div>
+                        <div class="card-inner rounded-xl p-3 text-center">
+                            <p class="text-amber-400 text-lg font-bold">5 min</p>
+                            <p class="text-xs text-zinc-500">Read one concept page</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-zinc-600 mt-3">→ A bad day with 10 min still counts. The streak doesn't break.</p>
+                </div>
+            </div>
+        </section>
 
-    </section>
+        <!-- Energy Management -->
+        <section class="card rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-2 text-white">⚡ Energy-Based Scheduling</h2>
+            <p class="text-xs text-zinc-500 mb-5">Research: Match task difficulty to energy level, not clock time (Schwartz, The Power of Full Engagement)</p>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="card-inner rounded-xl p-4 border-l-2" style="border-left-color: #f87171;">
+                    <p class="text-xs text-red-400 font-semibold mb-1">🔴 HIGH ENERGY (Morning)</p>
+                    <p class="text-sm text-zinc-300">New concepts, hard problems, deep learning</p>
+                    <p class="text-xs text-zinc-600 mt-2">8:00 – 9:00 AM block</p>
+                </div>
+                <div class="card-inner rounded-xl p-4 border-l-2" style="border-left-color: #fbbf24;">
+                    <p class="text-xs text-amber-400 font-semibold mb-1">🟡 MEDIUM ENERGY (Evening)</p>
+                    <p class="text-sm text-zinc-300">Practice familiar patterns, build on existing knowledge</p>
+                    <p class="text-xs text-zinc-600 mt-2">8:00 – 9:30 PM block</p>
+                </div>
+                <div class="card-inner rounded-xl p-4 border-l-2" style="border-left-color: #34d399;">
+                    <p class="text-xs text-emerald-400 font-semibold mb-1">🟢 LOW ENERGY (Commute)</p>
+                    <p class="text-sm text-zinc-300">Passive audio, podcasts, revision by listening</p>
+                    <p class="text-xs text-zinc-600 mt-2">Drive time blocks</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">🗓 Saturday</h2>
-            <ul class="space-y-3 text-slate-300">
-                <li>Mock interview practice</li>
-                <li>Focused coding review</li>
-                <li>Recovery time</li>
-            </ul>
-        </div>
+        <!-- Interleaving + Spaced Repetition -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div class="glass rounded-3xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6">☀ Sunday</h2>
-            <ul class="space-y-3 text-slate-300">
-                <li>Weekly review</li>
-                <li>Plan next week</li>
-                <li>Rest and reset</li>
-            </ul>
-        </div>
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-1 text-sky-400">🔀 Interleaving Practice</h2>
+                <p class="text-xs text-zinc-500 mb-4">Research: Mixing topics = 43% better retention (Rohrer & Taylor, 2007)</p>
+                <div class="space-y-2">
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-sky-400 font-medium">Evening block:</span> Don't do only DSA. Mix in 1 system design question or 1 Java concept.</p>
+                    </div>
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-sky-400 font-medium">Example:</span> 2 DSA problems → 1 system design sketch → 1 Spring concept</p>
+                    </div>
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-sky-400 font-medium">Why it works:</span> Feels harder in the moment, but builds stronger connections.</p>
+                    </div>
+                </div>
+            </div>
 
-    </section>
+            <div class="card rounded-2xl p-6">
+                <h2 class="text-lg font-bold mb-1 text-purple-400">🔁 Spaced Repetition</h2>
+                <p class="text-xs text-zinc-500 mb-4">Research: You forget 70% in 24h without review (Ebbinghaus, 1885)</p>
+                <div class="space-y-2">
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-purple-400 font-medium">Day 1:</span> Learn new concept</p>
+                    </div>
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-purple-400 font-medium">Day 2:</span> Quick recall during morning review</p>
+                    </div>
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-purple-400 font-medium">Day 5 (Fri):</span> Recall all week's topics without notes</p>
+                    </div>
+                    <div class="card-inner rounded-xl px-4 py-3">
+                        <p class="text-xs text-zinc-400"><span class="text-purple-400 font-medium">Day 7 (Sun):</span> Weekly review — mark what stuck</p>
+                    </div>
+                </div>
+            </div>
 
-    <section class="glass rounded-3xl p-8 shadow-2xl">
-        <h2 class="text-3xl font-bold mb-8">🎯 Weekly Targets</h2>
+        </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Friday Recall Block -->
+        <section class="card rounded-2xl p-6" style="border-color: #a78bfa20;">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-purple-400">📝 Friday Recall Session</h2>
+                <span class="tag px-3 py-1 rounded-full">Replace normal study</span>
+            </div>
+            <p class="text-xs text-zinc-500 mb-4">Every Friday evening: test yourself on the week's concepts WITHOUT looking at notes.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="card-inner rounded-xl p-3 text-center">
+                    <p class="text-xs text-zinc-500">Mon topic</p>
+                    <p class="text-sm text-zinc-300 mt-1">Can I explain it?</p>
+                </div>
+                <div class="card-inner rounded-xl p-3 text-center">
+                    <p class="text-xs text-zinc-500">Tue topic</p>
+                    <p class="text-sm text-zinc-300 mt-1">Can I code it?</p>
+                </div>
+                <div class="card-inner rounded-xl p-3 text-center">
+                    <p class="text-xs text-zinc-500">Wed topic</p>
+                    <p class="text-sm text-zinc-300 mt-1">Can I diagram it?</p>
+                </div>
+                <div class="card-inner rounded-xl p-3 text-center">
+                    <p class="text-xs text-zinc-500">Thu topic</p>
+                    <p class="text-sm text-zinc-300 mt-1">Can I teach it?</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="bg-slate-900/40 rounded-2xl p-6">
-                <h3 class="text-xl font-semibold mb-4">📘 DSA</h3>
-                <ul class="space-y-2 text-slate-300">
-                    <li>8–10 problems weekly</li>
-                    <li>Focus on patterns</li>
-                    <li>Revise weak topics</li>
+        <!-- Habit Tracker -->
+        <section class="card rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-2">
+                <h2 class="text-xl font-bold text-white">📊 Weekly Habit Tracker</h2>
+                <button onclick="resetTracker()" class="text-xs text-zinc-600 hover:text-red-400 transition px-3 py-1 rounded-lg border border-zinc-800 hover:border-red-500/30">Reset Week</button>
+            </div>
+            <p class="text-xs text-zinc-500 mb-1">Research: Just tracking increases consistency by 40% (Harkin et al., 2016)</p>
+            <p class="text-xs text-zinc-600 mb-5">Click cells to toggle ✓. Data saves locally in your browser.</p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs" id="habit-table">
+                    <thead>
+                        <tr class="text-zinc-500 uppercase tracking-wider">
+                            <th class="text-left p-2 font-medium">Habit</th>
+                            <th class="p-2 font-medium">Mon</th>
+                            <th class="p-2 font-medium">Tue</th>
+                            <th class="p-2 font-medium">Wed</th>
+                            <th class="p-2 font-medium">Thu</th>
+                            <th class="p-2 font-medium">Fri</th>
+                            <th class="p-2 font-medium">Sat</th>
+                            <th class="p-2 font-medium">Sun</th>
+                            <th class="p-2 font-medium text-emerald-400">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-zinc-400" id="tracker-body"></tbody>
+                </table>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <p class="text-xs text-zinc-600">Click ○ → ● to mark done. Streak resets every Monday.</p>
+                <p class="text-xs text-emerald-400" id="streak-display"></p>
+            </div>
+        </section>
+
+        <script>
+            const habits = [
+                { name: 'Morning study', days: [1,1,1,1,1,0,0], goal: 5 },
+                { name: 'Evening practice', days: [1,1,1,1,1,1,0], goal: 5 },
+                { name: 'Gym', days: [1,1,1,1,1,0,0], goal: 4 },
+                { name: 'Sleep by 10:15', days: [1,1,1,1,1,1,1], goal: 6 },
+                { name: 'Night planning', days: [1,1,1,1,1,1,1], goal: 7 },
+            ];
+            const dayNames = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+            const STORAGE_KEY = 'habit-tracker-data';
+            const STREAK_KEY = 'habit-streak';
+
+            function getWeekId() {
+                const now = new Date();
+                const start = new Date(now.getFullYear(), 0, 1);
+                const week = Math.ceil(((now - start) / 86400000 + start.getDay() + 1) / 7);
+                return `${now.getFullYear()}-W${week}`;
+            }
+
+            function loadData() {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed.week === getWeekId()) return parsed.data;
+                }
+                return habits.map(h => h.days.map(() => false));
+            }
+
+            function saveData(data) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({ week: getWeekId(), data }));
+                updateStreak(data);
+            }
+
+            function updateStreak(data) {
+                const today = (new Date().getDay() + 6) % 7; // 0=Mon
+                let perfectDays = 0;
+                for (let d = 0; d <= today; d++) {
+                    let allDone = true;
+                    for (let h = 0; h < habits.length; h++) {
+                        if (habits[h].days[d] && !data[h][d]) { allDone = false; break; }
+                    }
+                    if (allDone) perfectDays++;
+                }
+                document.getElementById('streak-display').textContent = perfectDays > 0 ? `🔥 ${perfectDays} perfect day${perfectDays > 1 ? 's' : ''} this week` : '';
+            }
+
+            function render() {
+                const data = loadData();
+                const tbody = document.getElementById('tracker-body');
+                tbody.innerHTML = '';
+
+                habits.forEach((habit, hIdx) => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'border-t border-zinc-800/50';
+
+                    const nameTd = document.createElement('td');
+                    nameTd.className = 'p-2 text-zinc-300';
+                    nameTd.textContent = habit.name;
+                    tr.appendChild(nameTd);
+
+                    let done = 0;
+                    habit.days.forEach((active, dIdx) => {
+                        const td = document.createElement('td');
+                        td.className = 'p-2 text-center';
+                        if (active) {
+                            const btn = document.createElement('button');
+                            btn.className = data[hIdx][dIdx]
+                                ? 'w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold transition hover:scale-110'
+                                : 'w-6 h-6 rounded-full border border-zinc-700 text-zinc-600 text-xs transition hover:border-emerald-500 hover:text-emerald-400';
+                            btn.textContent = data[hIdx][dIdx] ? '✓' : '○';
+                            btn.onclick = () => { data[hIdx][dIdx] = !data[hIdx][dIdx]; saveData(data); render(); };
+                            if (data[hIdx][dIdx]) done++;
+                            td.appendChild(btn);
+                        } else {
+                            td.className += ' text-zinc-700';
+                            td.textContent = '–';
+                        }
+                        tr.appendChild(td);
+                    });
+
+                    const scoreTd = document.createElement('td');
+                    scoreTd.className = 'p-2 text-center font-medium ' + (done >= habit.goal ? 'text-emerald-400' : 'text-zinc-500');
+                    scoreTd.textContent = `${done}/${habit.goal}`;
+                    tr.appendChild(scoreTd);
+
+                    tbody.appendChild(tr);
+                });
+
+                updateStreak(data);
+            }
+
+            function resetTracker() {
+                if (confirm('Reset all habits for this week?')) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    render();
+                }
+            }
+
+            render();
+        </script>
+
+        <!-- Accountability -->
+        <section class="card rounded-2xl p-6" style="border-color: #38bdf820;">
+            <h2 class="text-lg font-bold mb-1 text-sky-400">🤝 Accountability System</h2>
+            <p class="text-xs text-zinc-500 mb-4">Research: Social accountability increases follow-through by 65% (ASTD)</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-sm font-medium text-zinc-200 mb-1">Weekly Check-in</p>
+                    <p class="text-xs text-zinc-500">Share progress with 1 friend or online group every Sunday</p>
+                </div>
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-sm font-medium text-zinc-200 mb-1">Public Commit</p>
+                    <p class="text-xs text-zinc-500">Post 1 learning per week (LinkedIn, Twitter, or Discord)</p>
+                </div>
+                <div class="card-inner rounded-xl p-4">
+                    <p class="text-sm font-medium text-zinc-200 mb-1">Study Partner</p>
+                    <p class="text-xs text-zinc-500">Find 1 person on the same path — even async check-ins work</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Do / Don't -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="card rounded-2xl p-6 border-emerald-500/10">
+                <h2 class="text-lg font-bold mb-4 text-emerald-400">✅ DO</h2>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li class="flex items-center gap-2"><span class="text-emerald-500">›</span> Maintain consistency</li>
+                    <li class="flex items-center gap-2"><span class="text-emerald-500">›</span> Sleep at least 7 hours</li>
+                    <li class="flex items-center gap-2"><span class="text-emerald-500">›</span> Focus on projects</li>
+                    <li class="flex items-center gap-2"><span class="text-emerald-500">›</span> Track weekly progress</li>
+                    <li class="flex items-center gap-2"><span class="text-emerald-500">›</span> Study smart, not endlessly</li>
                 </ul>
             </div>
 
-            <div class="bg-slate-900/40 rounded-2xl p-6">
-                <h3 class="text-xl font-semibold mb-4">🏗 System Design</h3>
-                <ul class="space-y-2 text-slate-300">
-                    <li>2 concepts weekly</li>
-                    <li>Practice scalability</li>
-                    <li>Study architectures</li>
+            <div class="card rounded-2xl p-6 border-red-500/10">
+                <h2 class="text-lg font-bold mb-4 text-red-400">❌ DON'T</h2>
+                <ul class="space-y-2 text-sm text-zinc-400">
+                    <li class="flex items-center gap-2"><span class="text-red-500">›</span> Study till 2–3 AM</li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">›</span> Burn out on weekends</li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">›</span> Compare yourself constantly</li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">›</span> Watch tutorials all day</li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">›</span> Ignore health or family</li>
                 </ul>
             </div>
 
-            <div class="bg-slate-900/40 rounded-2xl p-6">
-                <h3 class="text-xl font-semibold mb-4">☕ Backend</h3>
-                <ul class="space-y-2 text-slate-300">
-                    <li>Spring Boot mastery</li>
-                    <li>Microservices</li>
-                    <li>SQL optimization</li>
-                </ul>
+        </section>
+
+        <!-- Career Roadmap -->
+        <section class="card rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-6 text-white">🛣 Career Roadmap</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <div class="card-inner phase-card phase-1 rounded-xl p-5">
+                    <h3 class="text-base font-semibold mb-3 text-sky-400">Phase 1 (0–3 Mo)</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>DSA fundamentals</li>
+                        <li>Java + Spring Boot foundations</li>
+                        <li>Backend architecture basics</li>
+                        <li>SQL and query performance</li>
+                    </ul>
+                </div>
+
+                <div class="card-inner phase-card phase-2 rounded-xl p-5">
+                    <h3 class="text-base font-semibold mb-3 text-emerald-400">Phase 2 (3–6 Mo)</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>System Design principles</li>
+                        <li>Distributed systems and APIs</li>
+                        <li>Microservices and integration</li>
+                        <li>Production-quality projects</li>
+                    </ul>
+                </div>
+
+                <div class="card-inner phase-card phase-3 rounded-xl p-5">
+                    <h3 class="text-base font-semibold mb-3 text-purple-400">Phase 3 (6–12 Mo)</h3>
+                    <ul class="space-y-1.5 text-xs text-zinc-400">
+                        <li>Interview problem solving</li>
+                        <li>Advanced backend systems</li>
+                        <li>AI and tooling integration</li>
+                        <li>Product company readiness</li>
+                    </ul>
+                </div>
+
             </div>
+        </section>
 
-            <div class="bg-slate-900/40 rounded-2xl p-6">
-                <h3 class="text-xl font-semibold mb-4">🤖 AI Skills</h3>
-                <ul class="space-y-2 text-slate-300">
-                    <li>Learn AI agents</li>
-                    <li>Explore LangChain</li>
-                    <li>Build integrations</li>
-                </ul>
-            </div>
+        <!-- Footer -->
+        <footer class="text-center text-zinc-600 text-xs py-6 leading-6">
+            Built on research, not motivation. Designed for consistency, not perfection. ⚡<br>
+            Small daily improvements + 1 year = major career transformation.
+        </footer>
 
-        </div>
-    </section>
-
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div class="glass rounded-3xl p-8 border border-emerald-500/20 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6 text-emerald-400">✅ DO</h2>
-            <ul class="space-y-4 text-slate-300">
-                <li>Maintain consistency</li>
-                <li>Sleep at least 7 hours</li>
-                <li>Focus on projects</li>
-                <li>Track weekly progress</li>
-                <li>Study smart, not endlessly</li>
-            </ul>
-        </div>
-
-        <div class="glass rounded-3xl p-8 border border-red-500/20 shadow-2xl">
-            <h2 class="text-2xl font-bold mb-6 text-red-400">❌ DON'T</h2>
-            <ul class="space-y-4 text-slate-300">
-                <li>Study till 2–3 AM</li>
-                <li>Burn out on weekends</li>
-                <li>Compare yourself constantly</li>
-                <li>Watch tutorials all day</li>
-                <li>Ignore health or family</li>
-            </ul>
-        </div>
-
-    </section>
-
-    <section class="glass rounded-3xl p-8 shadow-2xl">
-        <h2 class="text-3xl font-bold mb-8">🛣 Career Roadmap</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
-                <h3 class="text-2xl font-semibold mb-5 text-sky-400">Phase 1 (0–3 Months)</h3>
-                <ul class="space-y-3 text-slate-300">
-                    <li>DSA fundamentals</li>
-                    <li>Java + Spring Boot foundations</li>
-                    <li>Backend architecture basics</li>
-                    <li>SQL and query performance</li>
-                </ul>
-            </div>
-
-            <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
-                <h3 class="text-2xl font-semibold mb-5 text-emerald-400">Phase 2 (3–6 Months)</h3>
-                <ul class="space-y-3 text-slate-300">
-                    <li>System Design principles</li>
-                    <li>Distributed systems and APIs</li>
-                    <li>Microservices and integration</li>
-                    <li>Production-quality projects</li>
-                </ul>
-            </div>
-
-            <div class="bg-slate-900/40 rounded-2xl p-6 border border-slate-800">
-                <h3 class="text-2xl font-semibold mb-5 text-purple-400">Phase 3 (6–12 Months)</h3>
-                <ul class="space-y-3 text-slate-300">
-                    <li>Interview problem solving</li>
-                    <li>Advanced backend systems</li>
-                    <li>AI and tooling integration</li>
-                    <li>Product company readiness</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="text-center text-slate-500 py-8 leading-8">
-        Built for long-term consistency, not temporary motivation ⚡<br>
-        Small daily improvements + 1 year of consistency = major career transformation.
-    </footer>
-
-</div>
+    </div>
 
 </body>
+
 </html>
