@@ -250,6 +250,92 @@ main.container-fluid {
     }
 }
 
+/* Timetable page specific styles */
+.timetable-page * {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.timetable-page {
+    background: #0c0e14;
+    color: #c8ccd4;
+}
+
+.timetable-page .card {
+    background: #12141c;
+    border: 1px solid #1f2233;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.timetable-page .card:hover {
+    border-color: #2a2d3a;
+}
+
+.timetable-page .card-inner {
+    background: #181a24;
+    border: 1px solid #1f2233;
+}
+
+.timetable-page .priority-card {
+    border-color: #2a2d3a;
+}
+
+.timetable-page .accent-row {
+    background: rgba(110, 231, 183, 0.04);
+    border-left: 3px solid #6ee7b7;
+}
+
+.timetable-page .tag {
+    background: #181a24;
+    border: 1px solid #2a2d3a;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+.timetable-page .link-card {
+    background: #12141c;
+    border: 1px solid #1f2233;
+    transition: all 0.2s ease;
+}
+
+.timetable-page .link-card:hover {
+    background: #181a24;
+    border-color: #2a2d3a;
+    transform: translateY(-2px);
+}
+
+.timetable-page table tr {
+    transition: background 0.15s ease;
+}
+
+.timetable-page table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.timetable-page .phase-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.timetable-page .phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+}
+
+.timetable-page .phase-1::before { background: linear-gradient(90deg, #94a3b8, #94a3b880); }
+.timetable-page .phase-2::before { background: linear-gradient(90deg, #6ee7b7, #6ee7b780); }
+.timetable-page .phase-3::before { background: linear-gradient(90deg, #94a3b8, #94a3b880); }
+
+.timetable-page .quick-links-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+}
+
 /* Hero Panel */
 .hero-panel {
     background: var(--card-bg);

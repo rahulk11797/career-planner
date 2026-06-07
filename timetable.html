@@ -9,90 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
-    <style>
-        * {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-
-        body {
-            background: #0c0e14;
-            color: #c8ccd4;
-        }
-
-        .card {
-            background: #12141c;
-            border: 1px solid #1f2233;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .card:hover {
-            border-color: #2a2d3a;
-        }
-
-        .card-inner {
-            background: #181a24;
-            border: 1px solid #1f2233;
-        }
-
-        .priority-card {
-            border-color: #2a2d3a;
-        }
-
-        .accent-row {
-            background: rgba(110, 231, 183, 0.04);
-            border-left: 3px solid #6ee7b7;
-        }
-
-        .tag {
-            background: #181a24;
-            border: 1px solid #2a2d3a;
-            color: #94a3b8;
-            font-size: 0.75rem;
-            letter-spacing: 0.03em;
-        }
-
-        .link-card {
-            background: #12141c;
-            border: 1px solid #1f2233;
-            transition: all 0.2s ease;
-        }
-
-        .link-card:hover {
-            background: #181a24;
-            border-color: #2a2d3a;
-            transform: translateY(-2px);
-        }
-
-        table tr {
-            transition: background 0.15s ease;
-        }
-
-        table tbody tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.01);
-        }
-
-        .phase-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phase-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-        }
-
-        .phase-1::before { background: linear-gradient(90deg, #94a3b8, #94a3b880); }
-        .phase-2::before { background: linear-gradient(90deg, #6ee7b7, #6ee7b780); }
-        .phase-3::before { background: linear-gradient(90deg, #94a3b8, #94a3b880); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="min-h-screen p-6 md:p-10 lg:p-14">
+<body class="timetable-page min-h-screen p-6 md:p-10 lg:p-14">
 
     <div class="max-w-6xl mx-auto space-y-8">
 
@@ -100,21 +20,16 @@
         <!-- Quick Links -->
         <section class="card rounded-2xl p-7">
             <h2 class="text-lg font-bold mb-4 text-[#f0f1f3]">⚡ Quick Links</h2>
-            <div class="grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));">
-                <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer"
-                    class="link-card rounded-xl p-5">
-                    <p class="font-medium text-[#6ee7b7] text-sm">🧩 LeetCode</p>
-                    <p class="text-xs text-[#6b7280] mt-1">Problem Solving</p>
-                </a>
-                <a href="https://github.com/rahulk11797" target="_blank" rel="noopener noreferrer"
-                    class="link-card rounded-xl p-5">
-                    <p class="font-medium text-[#6ee7b7] text-sm">💻 GitHub</p>
-                    <p class="text-xs text-[#6b7280] mt-1">My Repos</p>
-                </a>
+            <div class="grid gap-3 quick-links-grid">
                 <a href="https://namastedev.com/learn/namaste-dsa" target="_blank" rel="noopener noreferrer"
                     class="link-card rounded-xl p-5">
                     <p class="font-medium text-[#c8ccd4] text-sm">📘 DSA</p>
                     <p class="text-xs text-[#6b7280] mt-1">Namaste DSA</p>
+                </a>
+                <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-5">
+                    <p class="font-medium text-[#6ee7b7] text-sm">🧩 LeetCode</p>
+                    <p class="text-xs text-[#6b7280] mt-1">Problem Solving</p>
                 </a>
                 <a href="https://interviewready.io/account" target="_blank" rel="noopener noreferrer"
                     class="link-card rounded-xl p-5">
@@ -138,6 +53,21 @@
                     class="link-card rounded-xl p-5">
                     <p class="font-medium text-[#c8ccd4] text-sm">⚙ DevOps</p>
                     <p class="text-xs text-[#6b7280] mt-1">YouTube</p>
+                </a>
+                <a href="https://github.com/rahulk11797" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-5">
+                    <p class="font-medium text-[#6ee7b7] text-sm">💻 GitHub</p>
+                    <p class="text-xs text-[#6b7280] mt-1">My Repos</p>
+                </a>
+                <a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-5">
+                    <p class="font-medium text-[#c8ccd4] text-sm">🎓 Coursera</p>
+                    <p class="text-xs text-[#6b7280] mt-1">Online Courses</p>
+                </a>
+                <a href="https://tcsglobal.udemy.com/" target="_blank" rel="noopener noreferrer"
+                    class="link-card rounded-xl p-5">
+                    <p class="font-medium text-[#c8ccd4] text-sm">📚 TCS Udemy</p>
+                    <p class="text-xs text-[#6b7280] mt-1">Training Portal</p>
                 </a>
             </div>
         </section>
